@@ -1,3 +1,18 @@
-p{
-    color:green;
+#container {
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    padding: 30px 70px;
+    background-color: white;
+    line-height: 2;
+    font-size: 18px;
+    border: 1px solid yellow;
+}
+
+.image {
+    width: 70%;
+    margin: 20px 15%;
+}
+#box {
+    padding:15px 0px 40px;
 }
