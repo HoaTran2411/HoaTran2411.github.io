@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css cho phần banner+blog Techmaster */
+        .article {
+            display: flex;
+            flex-direction: row;
+            height: 480px;
+            box-sizing: border-box;
+            margin:60px 8%;
+            justify-content:center;
+        }
+        .banner {
+            padding-right:20px;
+        }
+        .banner img {
+            height:100%;
+            width:100%;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width:40%;
+            justify-content:space-between;
+        }
+
+        .blog {
+            display: flex;
+            flex-direction: row;
+            height:100px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+        }
+
+        .blog img {
+            width:100px;
+            height:100px;
+        }
+        .blog-title {
+            display:flex;
+            flex-direction:column;
+            justify-content:space-between;
+            padding:10px 12px 5px 5px;
+
+        }
+        .blog-title a {
+            text-decoration:none;
+            color:#464646;
+            font-size:1rem;
+        }
+        .blog-title p {
+            font-size:0.8rem;
+            color:#757575;
+        }
+
+        /* css cho phần program-learning */
+        .program-learning {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .program-learning-detail {
+            width: 17%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .program-learning-detail a {
+            text-decoration: none;
+            line-height: 20px;
+        }
+
+        .program-learning-detail h3 {
+            color: #464646;
+            text-transform: uppercase;
+            font-weight: 540;
+        }
+
+        .program-learning-detail p {
+            color: #999999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- banner + blog Techmaster -->
+    <div class="article">
+        <div class="banner">
+            <img src="https://techmaster.vn/khoa-hoc/25594/khoa-hoc-python-phan-tich-xu-ly-du-lieu" alt="Python & Big data" />
+        </div>
+        <div class="article-list">
+            <div class="blog">
+                <img src="https://techmaster.vn/media/static/brbgh4451coepbqoch60/bv8avqc51co6tcree0kg"
+                    alt="Ảnh minh họa" />
+                <div class="blog-title">
+                    <a href="https://techmaster.vn/posts/36172/spring-boot-6-configuration-va-bean">Spring Boot 6:
+                        Configuration
+                        và Bean</a>
+                    <p>Nguyễn Thanh Hương</p>
+                </div>
+            </div>
+
+            <div class="blog">
+                <img src="https://techmaster.vn/media/static/10194/bv7lo8c51coduae6ijg0" alt="You can do it, friend" />
+                <div class="blog-title">
+                    <a
+                        href="https://techmaster.vn/posts/36179/nhung-lap-trinh-vien-thanh-cong-thuong-khuyen-ban-dieu-gi-phan-1">Những
+                        lập trình viên thành công thường khuyên bạn điều gì (phần 1)</a>
+                    <p>Techmaster team</p>
+                </div>
+            </div>
+
+            <div class="blog">
+                <img src="https://techmaster.vn/media/static/brbgh4451coepbqoch60/bv5mv1s51co9kgmvp93g"
+                    alt="Ảnh lập trình" />
+                <div class="blog-title">
+                    <a href="https://techmaster.vn/posts/36171/spring-boot-5-component-scan-la-gi">Spring Boot 5 :
+                        Component Scan là gì?</a>
+                    <p>Techmaster team</p>
+                </div>
+            </div>
+
+            <div class="blog">
+                <img src="https://techmaster.vn/media/static/brbgh4451coepbqoch60/bv5mv1s51co9kgmvp93g"
+                    alt="Ảnh lập trình" />
+                <div class="blog-title">
+                    <a href="https://techmaster.vn/posts/36169/spring-boot-4-component-service-repository">Spring Boot
+                        4: Component - Service - Repository</a>
+                    <p>Phạm Mẫn</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- chương trình đào tạo -->
+    <div class="program-learning">
+        <div class=program-learning-detail>
+            <a href="https://techmaster.vn/lo-trinh/foundation">
+                <h3>Lập trình căn bản</h3>
+                <p>Định hướng học viên làm quen nhanh chóng với lập trình</p>
+            </a>
+        </div>
+        <div class=program-learning-detail>
+            <a href="https://techmaster.vn/khoa-hoc/truc-tuyen">
+                <h3>Học trực tuyến</h3>
+                <p>Hệ thống đảm bảo người dùng có thể truy cập từ bất cứ đâu</p>
+            </a>
+        </div>
+        <div class=program-learning-detail>
+            <a
+                href="https://techmaster.vn/khoa-hoc/phong-lab?%C4%90%E1%BB%91i-t%C6%B0%E1%BB%A3ng-ng%C6%B0%E1%BB%9Di-h%E1%BB%8Dc=Doanh-nghi%E1%BB%87p">
+                <h3>Đào tạo doanh nghiệp</h3>
+                <p>Đào tạo và hợp tác tích cực với các doanh nghiệp</p>
+            </a>
+        </div>
+        <div class=program-learning-detail>
+            <a href="https://techmaster.vn/lo-trinh/front-end">
+                <h3>Web frontend - reactjs</h3>
+                <p>Làm chủ công nghệ mới nhanh chóng, cơ hội nghề nghiệp tốt</p>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
