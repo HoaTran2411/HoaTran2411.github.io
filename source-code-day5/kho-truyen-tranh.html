@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kho truyện tranh</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .logo {
+            background-color: #3F3567;
+            height: 60px;
+        }
+
+        .logo img {
+            height: 35px;
+            margin-top: 16px;
+            padding-left: 6%;
+        }
+
+        .container {
+            width: 60%;
+            margin: auto;
+            height: 100%;
+            font-family: Tahoma,Helvetica,Arial;
+            padding:50px 20px;
+            text-align: center;
+            background-color:#F0F0F0;
+        }
+
+        .container-list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content:space-between;
+        }
+        .container-list-detail {
+            box-shadow: 0 2px 5px rgba(0,0,0,0.25);
+            min-width:26%;
+            margin-bottom:20px;
+            margin-top:70px;
+        }
+        .container-list-detail img {
+            width:100%;
+            max-width:300px;
+            height:300px;
+            transition:all 1s ease-in 0.5s;
+            border-radius:10px;
+        }
+        a {
+            text-decoration:none;
+        }
+        figcaption {
+            font-size:16px;
+            padding:10px;
+            font-weight:550;
+            color:#2873a5;
+        }
+        h1 {
+            text-transform:uppercase;
+            font-size:28px;
+            color:#1a6ea7;
+        }
+        /* hiệu ứng hover cho ảnh */
+        .container-list-detail img:hover {
+            transform:scale(1.3);
+            border-radius:50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="logo">
+        <img src="http://st.truyenchon.com/data/logos/logo-nettruyen.png" alt="NetTruyen">
+    </div>
+    <div class="container">
+        <h1>Top truyện tranh hay nhất 2020</h1>
+        <div class="container-list">
+            <div class="container-list-detail">
+                <a href="ta-la-vua-phap-su.html" target="_blank">
+                    <figure>
+                        <img src="../ảnh/ta-la-vua-phap-su.jpg" alt="ảnh truyện ta là vua pháp sư" title="Ta là vua pháp sư" />
+                        <figcaption>Ta là vua pháp sư</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="container-list-detail">
+                <a href="chuyen-cua-yokai.html" target="_blank">
+                    <figure>
+                        <img src="../ảnh/chuyen-cua-yokai.jpg" alt="ảnh truyện tranh-chuyện của yokai" title="Chuyện của Yokai"/>
+                        <figcaption>Chuyện của Yokai</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="container-list-detail">
+                <a href="nguoi-o-re-manh-nhat.html" target="_blank">
+                    <figure>
+                        <img src="../ảnh/nguoi-o-re-manh-nhat.jpg" alt="ảnh truyện người ở rể mạnh nhất" title="Người ở rể mạnh nhất"/>
+                        <figcaption>Người ở rể mạnh nhất</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="container-list-detail">
+                <a href="http://www.nettruyen.com/truyen-tranh/chuyen-cua-yokai-24755" target="_blank">
+                    <figure>
+                        <img src="../ảnh/thien-than-rot-xuong-nha-tui.jpg"
+                            alt="Ảnh truyện thiên thần rớt xuống nhà tôi" title="Thiên thần rớt xuống nhà tôi" />
+                        <figcaption>Thiên thần rớt xuống nhà tôi</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="container-list-detail">
+                <a href="http://www.nettruyen.com/truyen-tranh/chuyen-cua-yokai-24755" target="_blank">
+                    <figure>
+                        <img src="../ảnh/trong-sinh-dia-cau-tien-ton.jpg"
+                            alt="Ảnh truyện trọng sinh địa cầu tiên tôn" title="Trọng sinh địa cầu tiên tôn" />
+                        <figcaption>Trọng sinh địa cầu tiên tôn</figcaption>
+                    </figure>
+                </a>
+            </div>
+            <div class="container-list-detail">
+                <a href="http://www.nettruyen.com/truyen-tranh/chuyen-cua-yokai-24755" target="_blank">
+                    <figure>
+                        <img src="../ảnh/days.jpg" alt="ảnh truyện tranh-Days" title="Days" />
+                        <figcaption>Days</figcaption>
+                    </figure>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zing MP3 | Nghe tải nhạc chất lượng</title>
+    <link rel="shortcut icon" href="https://static-zmp3.zadn.vn/skins/zmp3-v5.2/images/icon_zing_mp3_60.png"
+        type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            background-color: #FCFCFC;
+        }
+
+        .container {
+            width: 70%;
+            margin: auto;
+        }
+
+        /* css cho ảnh banner */
+        .banner {
+            width: 100%;
+        }
+
+        .banner img {
+            width: 100%;
+        }
+        /* css cho phần nav, VIP */
+        .nav {
+            display:flex;
+            flex-direction:row;
+            padding-top: 100px;
+            padding-bottom: 14.5px;
+            margin-right: 100px;
+            margin-bottom: 17px;
+            width:100%;
+        }
+        /* css cho phần navigation */
+        .menu {
+            display: flex;
+            flex-direction: row;
+            position: relative;
+            list-style-type: none;
+            transition: all 3s ease-in 2s;
+        }
+        .title {
+            padding-right:23px;
+        }
+
+        .menu-table {
+            position: absolute;
+            display: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #32323d;
+        }
+
+        .title,
+        h3 {
+            text-transform: uppercase;
+            font-size: 14px;
+            font-weight: 550;
+        }
+
+        table {
+            height: fit-content;
+            width: fit-content;
+            margin-top: 30px;
+            text-align: left;
+            border: 1px solid black;
+        }
+
+        table tr th,
+        td {
+            min-width: 150px;
+            padding: 10px 12px;
+        }
+
+        td {
+            text-transform: capitalize;
+            font-size: 14px;
+        }
+
+        .menu li:hover .menu-table {
+            display: block;
+        }
+
+        .menu li:hover .title {
+            color: #6e55b4;
+        }
+
+        td:hover {
+            background-color: lightgray;
+        }
+
+        td:hover a {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="nav-list">
+                <ul class="menu">
+                    <!-- phần trang chủ -->
+                    <li><a class="title" href="https://zingmp3.vn/">TRANG CHỦ</a></li>
+                    <!-- phần zingchart -->
+                    <li><a class="title" href="https://zingmp3.vn/zing-chart">#ZINGCHART</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h3>REALTIME</h3>
+                                        </th>
+                                        <th>
+                                            <h3>tuần</h3>
+                                        </th>
+                                        <th>
+                                            <h3>us-uk</h3>
+                                        </th>
+                                        <th>
+                                            <h3>k-pop</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://zingmp3.vn/zing-chart/bai-hat.html">Bài hát</a></td>
+                                        <td><a href="https://zingmp3.vn/zing-chart-tuan/bai-hat-Viet-Nam/IWZ9Z08I.html">Bài
+                                                hát</a></td>
+                                        <td><a href="https://zingmp3.vn/zing-chart-tuan/bai-hat-US-UK/IWZ9Z0BW.html">Bài
+                                                hát</a>
+                                        </td>
+                                        <td><a href="https://zingmp3.vn/zing-chart-tuan/bai-hat-Kpop/IWZ9Z0BO.html">Bài
+                                                hát</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="https://zingmp3.vn/zing-chart/video.html">MV</a></td>
+                                        <td><a
+                                                href="https://zingmp3.vn/zing-chart-tuan/video-Viet-Nam/IWZ9Z08W.html">MV</a>
+                                        </td>
+                                        <td><a
+                                                href="https://zingmp3.vn/zing-chart-tuan/video-US-UK/IWZ9Z0BU.html">MV</a>
+                                        </td>
+                                        <td><a href="https://zingmp3.vn/zing-chart-tuan/video-Kpop/IWZ9Z0BZ.html">MV</a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần mới phát hành -->
+                    <li><a class="title" href="https://zingmp3.vn/top-new-release">Mới phát hành</a></li>
+                    <li>
+                        <!-- phần top 100 -->
+                        <a class="title" href="https://zingmp3.vn/top100">Top 100</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h3>việt nam</h3>
+                                        </th>
+                                        <th>
+                                            <h3>âu mỹ</h3>
+                                        </th>
+                                        <th>
+                                            <h3>châu á</h3>
+                                        </th>
+                                        <th>
+                                            <h3>hòa tấu</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trẻ</td>
+                                        <td>Pop</td>
+                                        <td>Hàn Quốc</td>
+                                        <td>Classical</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trữ tình</td>
+                                        <td>Rock</td>
+                                        <td>Nhật Bản</td>
+                                        <td>Piano</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần chủ đề -->
+                    <li><a class="title" href="https://zingmp3.vn/chu-de">Chủ đề</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h3>đề xuất</h3>
+                                        </th>
+                                        <th>
+                                            <h3>thể loại</h3>
+                                        </th>
+                                        <th>
+                                            <h3>tâm trạng</h3>
+                                        </th>
+                                        <th>
+                                            <h3>hoạt động</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc hot</td>
+                                        <td>EDM</td>
+                                        <td>những ngày mưa</td>
+                                        <td>tập trung</td>
+                                    </tr>
+                                    <tr>
+                                        <td>những bài hit</td>
+                                        <td>acoustic</td>
+                                        <td>tình yêu</td>
+                                        <td>spa-yoga</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần MV -->
+                    <li><a class="title" href="https://zingmp3.vn/the-loai-video.html">mv</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h3>việt nam</h3>
+                                        </th>
+                                        <th>
+                                            <h3>âu mỹ</h3>
+                                        </th>
+                                        <th>
+                                            <h3>châu á</h3>
+                                        </th>
+                                        <th>
+                                            <h3>hòa tấu</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trẻ</td>
+                                        <td>Pop</td>
+                                        <td>Hàn Quốc</td>
+                                        <td>Classical</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trữ tình</td>
+                                        <td>Rock</td>
+                                        <td>Nhật Bản</td>
+                                        <td>Piano</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần album -->
+                    <li><a class="title" href="https://zingmp3.vn/the-loai-album.html">album</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <th>
+                                            <h3>việt nam</h3>
+                                        </th>
+                                        <th>
+                                            <h3>âu mỹ</h3>
+                                        </th>
+                                        <th>
+                                            <h3>châu á</h3>
+                                        </th>
+                                        <th>
+                                            <h3>hòa tấu</h3>
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trẻ</td>
+                                        <td>Pop</td>
+                                        <td>Hàn Quốc</td>
+                                        <td>Classical</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nhạc trữ tình</td>
+                                        <td>Rock</td>
+                                        <td>Nhật Bản</td>
+                                        <td>Piano</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần nghệ sĩ -->
+                    <li><a class="title" href="https://zingmp3.vn/the-loai-nghe-si.html">nghệ sĩ</a>
+                        <ul class="menu-table">
+                            <li>
+                                <table>
+                                    <tr>
+                                        <td>việt nam</td>
+                                    </tr>
+                                    <tr>
+                                        <td>âu mỹ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hàn quốc</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nhật bản</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hoa ngữ</td>
+                                    </tr>
+                                    <tr>
+                                        <td>hòa tấu</td>
+                                    </tr>
+                                </table>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- phần nhạc cá nhân -->
+                    <li><a class="title" href="https://zingmp3.vn/mymusic">nhạc cá nhân</a></li>
+                </ul>
+            </div>
+            <!-- phần vip -->
+            <div><a class="title"
+                    href="https://zingmp3.vn/vip#utm_source=desktop&utm_medium=topnav-link&utm_campaign=VIP"
+                    target="_blank">vip</a>
+
+            </div>
+        </div>
+        <div class="banner">
+            <img src="https://photo-zmp3.zadn.vn/banner/2/1/7/d/217df61fbbec76fd18641bc98ff76c58.jpg"
+                alt="Ảnh bài hát mới">
+        </div>
+    </div>
+</body>
+
+</html>
