@@ -1,0 +1,381 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root {
+    --main-color:rgb(64, 64, 219);
+}
+html {
+    font-size:16px;
+    line-height:23px;
+    font-family:sans-serif,tahoma;
+}
+h1 {
+    font-size:2.2rem;
+}
+h2 {
+    font-size:1.7rem;
+}
+h1,h2,h3,h4 {
+   font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+h1,h2, .icon-edit {
+    color:var(--main-color);
+}
+h3 {
+    font-size:1.2rem;
+    padding-bottom:5px;
+}
+img {
+   box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+}
+h4 {
+    padding-bottom:5px;
+}
+p {
+    color:rgb(61, 50, 50);
+}
+
+/* css cho phần header */
+.header {
+    background-image: url("picture/anh-bia-cat-trang.jpg");
+    background-size: cover;
+    height:100vh;
+    width: 100%;
+    display:flex;
+    flex-direction:column;
+    line-height:30px;
+}
+.header-container {
+    padding:30px 10%;
+}
+.icon-edit {
+    font-size:30px;
+}
+.header-container-icon {
+    display:flex;
+    flex-direction:row;
+}
+.header-container-icon p {
+    padding-left:5px;
+    font-family:cursive,'Segoe UI', Tahoma;
+    font-weight:400;
+}
+.header-container-content {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+.header-container-content-title {
+    margin-top:20px;
+    margin-bottom:50px;
+}
+.header-container-content-list a {
+    text-decoration:none;
+    font-size:1rem;
+    color:rgb(90, 62, 62);
+    font-style:italic;
+}
+.header-container-content-list a:hover {
+    text-decoration:underline;
+    color:var(--main-color);
+}
+
+ /* css cho phần content */
+ .content {
+    width:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:70px 10%;
+    text-align:justify;
+ }
+ .content:nth-child(even) {
+    background-color:#d9ecf2;
+ }
+ .content:nth-child(odd) {
+    background-color:#fdcfdf;
+ }
+ .content-title {
+     margin-bottom:70px;
+ }
+ 
+ /* css cho phần giới thiệu chung về Maldives */
+.content-introduce {
+    display:flex;
+    flex-direction:row;
+    width:100%;
+    justify-content:space-between;
+    height:388px;
+}
+.content-introduce-video {
+    width:42%;
+    height:100%;
+}
+.content-introduce-video iframe {
+    width:100%;
+    height:100%;
+}
+.content-introduce-detail {
+    width:55%;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    max-height:100%;
+    overflow:hidden;
+}
+.content-introduce-detail h3 {
+    padding-top:5px;
+}
+
+/* css cho phần content-prepare */
+.content-prepare {
+    display:flex;
+    flex-flow:row wrap;
+    width:100%;
+    justify-content:space-between;
+}
+.content-prepare-list {
+    width:47%;
+    display:flex;
+    flex-direction:row;
+    padding-bottom:50px;
+}
+.icon {
+    font-size:70px;
+    color:rgb(32, 143, 32);
+}
+.content-prepare-list-icon {
+    padding-right:30px;
+}
+.content-prepare-list-description {
+    width:100%;
+    max-height:215px;
+    overflow:hidden;
+}
+
+ /* css cho phần các mùa ở maldives */
+ .content-season {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.content-season-list {
+    width:23%;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+    border-radius:5px;
+    background-color:white;
+}
+.content-season-list-picture {
+    width:100%;
+    height:150px;
+    margin-bottom:10px;
+}
+.content-season-list-picture img {
+    width:100%;
+    height:100%;
+    border-radius:5px;
+}
+.content-season-list-description {
+    padding:8px 8px 15px;
+    border-radius:5px;
+    max-height:285px;
+    overflow:hidden;
+    padding-bottom:15px;
+}
+.content-season-list-description p {
+    font-size:0.9rem;
+    font-style:italic;
+    color:rgb(80, 78, 78);
+}
+
+/* css cho phần nhà nghỉ, khách sạn ở Maldives */
+.content-hotel {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:100%;
+    height:440px;
+}
+.content-hotel-description {
+    width:48%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    overflow:hidden;
+}
+.content-hotel-description h3 {
+    padding-top:8px;
+}
+.content-hotel-picture {
+    width:49%;
+    height:100%;
+}
+.content-hotel-picture img {
+    width:100%;
+    height:100%;
+    min-height:420px;
+    min-width:520px;
+    overflow:hidden;
+    border-radius:5px;
+    filter:sepia(0);
+    transition: .3s ease-in-out;
+}
+.content-hotel-picture img:hover {
+    filter:sepia(100%);
+}
+ 
+ /* css cho hoạt động chơi ở Maldives */
+ .content-game {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+ }
+ .content-game-list {
+     width:23%;
+     height:180px;
+     margin-bottom:60px;
+     transition: .3s ease-in-out;
+ }
+ .content-game-list:hover {
+     transform:scale(1.1);
+ }
+ .content-game-list img {
+     width:100%;
+     height:100%;
+     border-radius:5px;
+ }
+ 
+ .content-game-list figcaption {
+     text-align:center;
+     font-weight:400;
+     font-size:0.85rem;
+     font-style:italic;
+     color:rgb(39, 37, 37);
+ }
+
+/* css cho phần footer */
+#avatar {
+    width:100px;
+    height:100px;
+    border-radius:50%;
+}
+.footer {
+    padding:50px 10%;
+    background-color:#11698e;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+}
+.footer-contact {
+    font-size:0.8rem;
+    width:330px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+    padding:15px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:white;
+    border-radius:10px;
+
+}
+.footer-contact-detail {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+.footer-contact-detail a {
+    text-decoration:none;
+    color:black;
+    font-style: italic;
+    font-size:0.7rem;
+}
+.footer-contact-detail li {
+    list-style-type:square;
+    line-height:18px;
+}
+.footer-contact-detail a:hover {
+    text-decoration:underline;
+    color:var(--main-color);
+}
+/* css cho phần footer - comment */
+.footer-comment {
+    width:58%;
+    background-color:white;
+    padding:22px 35px;
+    border-radius:10px;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.footer-comment-form input {
+    width:100%;
+    height:45px;
+    padding:20px;
+    margin-bottom:10px;
+    border-radius:5px;
+    border: 1px solid #dddfe2;
+}
+input:focus {
+    outline: none;
+    border: 1px solid #0b6be7;
+}
+.footer-comment-form button {
+    height:33px;
+    width:80px;
+    font-size:15px;
+    font-weight:550;
+    float:right;
+    border-radius:5px;
+    border: 1px solid #dddfe2;
+    box-shadow: 0 2px 3px 1px rgba(0, 0, 0, 0.15);
+    background-color:var(--main-color);
+    color:rgb(243, 236, 236);
+}
+.footer-comment-form button:hover {
+    opacity:0.8;
+    transform:scale(1.02)
+}
+
+.footer-comment-contact {
+    display:flex;
+    flex-direction:column;
+}
+.footer-comment-contact-icon {
+    display:flex;
+    flex-direction:row;
+    justify-content:space-between;
+    width:120px;
+    font-size:20px;
+    padding-top:10px;
+    
+}
+.icon-footer {
+    color:var(--main-color);
+}
+.icon-footer:hover {
+    opacity:0.8;
+    transform:scale(1.02);
+}
+.footer-comment-signature {
+    float:right;
+    font-size:12px;
+    font-style:italic;
+    font-family:cursive,'Segoe UI', Tahoma;
+    color:var(--main-color);
+}
+#arrow-up {
+    position:fixed;
+    right:35px;
+    bottom:50px;
+}
+.icon-fixed {
+    font-size:25px;
+    color:red;
+}
