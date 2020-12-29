@@ -12,20 +12,22 @@
     <script>
         // 1. Viết chương trình tính chu vi của hình tròn
 
-        function circuit(diameter = 3) {
+        function circuit(D = 3) {
             let pi = 3.14
-            let result = diameter * pi
-            console.log('Chu vi hình tròn C = ' + result)
+            let result = D * pi
+            console.log('Đường kính của hình tròn bằng ' + D)
+            console.log('Chu vi hình tròn bằng ' + result)
             return result
         }
         circuit()
 
 
         // 2. Viết chương trình tính diện tích hình tròn
-        function circleArea(radius = 5) {
+        function circleArea(R = 5) {
             let pi = 3.14
-            let result = radius ** 2 * pi
-            console.log('Diện tích hình tròn S = ' + result)
+            let result = R ** 2 * pi
+            console.log('Bán kính của hình tròn bằng ' + R )
+            console.log('Diện tích hình tròn bằng ' + result)
             return result
         }
         circleArea()
@@ -96,8 +98,6 @@
             return result
         }
         random()
-
-
     </script>
 </body>
 
