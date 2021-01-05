@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework-Day3</title>
+</head>
+
+<body>
+    <script>
+
+        // Bài 1. Viết function kiểm tra 1 giá trị có nằm trong mảng hay không
+        // Ví dụ: checkElementExist([1, 2, 3, 4], 4) => true
+        // Ví dụ: checkElementExist([1, 2, 3, 4], 5) => false
+
+        let arrNo1 = [1, 3, 5, 7, 'flower']
+
+        function checkNum(item, arr) {
+            let result = arr.includes(item)
+            console.log(result)
+            return result
+        }
+        checkNum('flower', arrNo1)
+
+
+        // Bài 2. Viết function tìm ra số lớn thứ nhì trong mảng các số.
+        // Ví dụ: max2Numbers([2, 1, 3, 4]) => 3
+
+        let arrayNumber2 = [22, 3, 7, 9, 20, 7, 22, 22]
+        function find2ndMaxNum(arr) {
+            let maxNum = arr[0]
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > maxNum) {
+                    maxNum = arr[i]
+                }
+            }
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < maxNum) {
+                    newArr.push(arr[i])
+                }
+            }
+            let maxNumOfNewArr = newArr[0]
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i] > maxNumOfNewArr) {
+                    maxNumOfNewArr = newArr[i]
+                }
+            }
+            console.log(maxNumOfNewArr)
+            return maxNumOfNewArr
+        }
+        find2ndMaxNum(arrayNumber2)
+
+
+        // Bài 3. Viết function để lấy một phần tử ngẫu nhiên từ một mảng
+        // Ví dụ: randomElement([3, 7, 9, 11]) => 3
+        // Ví dụ: randomElement([3, 7, 9, 11]) => 9
+
+        number3 = [3, 7, 9, 11]
+
+        function findRandomNum(arr) {
+            let ranDomNum = Math.random() * (arr.length)     //Math.random không bao gồm số 1
+            let ranDomIndex = Math.floor(ranDomNum);
+            console.log(arr[ranDomIndex])
+            return (arr[ranDomIndex])
+        }
+        
+        findRandomNum(number3)
+        
+
+        // Bài 4. Cho 1 mảng các chuỗi.Viết function lọc ra các phần tử có độ dài lớn nhất.
+        // Ví dụ: findMaxLengthElement["aba", "aa", "ad", "c", "vcd"] => ["aba", "vcd"]
+
+        let arrayNumber4 = ["aba", "aa", "adc", "c", "vcd"]
+        function checkMaxLength(arr) {
+            let maxLength = arr[0].length
+            for (let i = 0; i < arr.length; i++) {
+                if (maxLength <= arr[i].length) {
+                    maxLength = arr[i].length
+                }
+            }
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i].length == maxLength) {
+                    newArr.push(arr[i])
+                }
+
+            }
+            return newArr
+
+        }
+        console.log(checkMaxLength(arrayNumber4))
+
+
+
+        // Bài 5. Viết function để lấy một mảng bao gồm các phần tử xuất hiện trong cả hai mảng
+        // Ví dụ: similarity([1, 2, 3], [1, 2, 4]) => [1, 2]  
+
+        let arrayNum5a = [1, 2, 3]
+        let arrayNum5b = [1, 2, 4]
+        console.log(arrayNum5b.indexOf(arrayNum5a[1]));
+
+        function Similarity(arr1, arr2) {
+            let newArr = []
+            for (let i = 0; i < arr1.length; i++) {
+                if (arr2.indexOf(arr1[i]) != -1) {
+                    newArr.push(arr1[i])
+                }
+            }
+            console.log(newArr)
+            return newArr
+        }
+        Similarity(arrayNum5a, arrayNum5b)
+
+
+
+        // Bài 6. Viết function remove những phần tử bị trùng nhau trong mảng
+        // Ví dụ: removeDuplicates([1, 2, 5, 2, 6, 2, 5]) => [1, 2, 5, 6]
+        arrayNum6 = [1, 2, 5, 2, 6, 2, 5]
+        function removeDuplicates(arr) {
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    newArr.push(arr[i])
+                }
+            }
+            console.log(newArr)
+            return newArr
+        }
+        removeDuplicates(arrayNum6)
+
+
+
+        // Bài 7. Viết function để tạo mã màu HEX ngẫu nhiên.
+        // Ví dụ: randomHexCode() => #2ecc71
+        // Ví dụ: randomHexCode() => #8e44ad
+
+
+        function randomColor() {
+            var hex = '';
+            while (hex.length < 7) {
+                hex = hex + (Math.random()).toString(16).substr(-6).substr(-1) //.tostring(16) để trả về kết quả dưới dạng thập lục phân
+            }                                                                  //.substr() để trích xuất 1 chuỗi ký tự con bên trong chuỗi cha
+            return '#' + hex;
+        }
+        console.log(randomColor())
+
+        
+
+
+        // Bài 8. Viết function để tạo mã màu RGB ngẫu nhiên.
+        // Ví dụ: randomRgbCode() => rgb(46, 204, 113)
+        // Ví dụ: randomRgbCode() => rgb(142, 68, 173)
+        
+        function randomRgbCode() { 
+            let numberColor = Math.floor(Math.random() * 256)          //Math.random() không bao gồm số 1 
+            let color= 'rgb(' + numberColor + ',' + numberColor + ',' + numberColor + ')'
+            console.log(color)
+            return color  
+        }
+
+        randomRgbCode()
+        
+
+
+
+    </script>
+</body>
+
+</html>
