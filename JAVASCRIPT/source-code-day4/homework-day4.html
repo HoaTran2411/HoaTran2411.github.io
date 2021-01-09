@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Work day 4 - Js</title>
+</head>
+
+<body>
+
+    <script>
+        // Bài 1. Viết function kiểm tra 1 chuỗi có nằm trong chuỗi còn lại hay không
+        // Ví dụ: checkStringExist("i love you", "you") => true
+        // Ví dụ: checkStringExist("i love you", "hate") => false
+
+        let str1Part1 = 'i love you'
+        let str1Part2 = 'you'
+        function checkStringExist(str1, str2) {
+            return str1.includes(str2) 
+        }
+        console.log(checkStringExist(str1Part1, str1Part2))
+
+
+        // Bài 2. Viết function rút ngắn chuỗi bằng cách cắt ra 8 ký tự đầu của 1 chuỗi và thêm dấu ba chấm ở cuối chuỗi.
+        // Ví dụ: shortenString('Xin chào các bạn') => 'Xin chào...'
+        // Ví dụ: shortenString('Hello') => 'Hello'
+
+        let string2 = 'Xin chào các bạn'
+        let string22 = 'Hello'
+        function shortenStr(str) {
+            let newStr = ''
+            if (str.length > 7) {
+                newStr = str.slice(0, 8) + '...'
+            }
+            else {
+                newStr = str
+            }
+            console.log(newStr)
+            return newStr
+        }
+        shortenStr(string2)
+        shortenStr(string22)
+
+
+
+        // Bài 3. Viết function có tác dụng biến 1 chuỗi thành chuỗi chỉ viết hoa từ đầu tiên.
+        // Ví dụ: capitalizeString('chÀo MừnG đẾn với techMaster') => 'Chào Mừng Đến Với Techmaster'
+
+        let string3 = 'chÀo MừnG đẾn với techMaster';
+        function capitalizeStr(str) {
+            //chuyển chuỗi sang dạng arr
+            arr = str.toLocaleLowerCase().split(' ')
+            //chạy lần lượt từng phần tử trong arr
+            //tách phần tử thành 2 phần: 1 là chữ cái đầu viết in hoa, chữ còn lại để nguyên
+            let newArr = [];
+            for (let i = 0; i < arr.length; i++) {
+                let firstLetter = arr[i].charAt(0).toUpperCase();
+                let restOfLetter = arr[i].slice(1);
+                newArr[i] = firstLetter + restOfLetter;
+            }
+            return newArr.join(' ')
+        }
+        console.log(capitalizeStr(string3))
+
+
+
+        /* Bài 4. Cho 1 chuỗi và 1 số nguyên n > 1, hãy viết function có tác dụng sao chép đó chuỗi lên n lần, 
+        ngăn cách nhau bởi dấu gạch ngang.
+        Ví dụ: repeatString('a', 5) => 'a-a-a-a-a' */
+
+        let string4 = 'a'
+        function repeatString(str, x) {
+            let newStr = ''
+            for (let i = 0; i < x; i++) {
+                newStr += str
+            }
+            return newStr.split('').join('-')
+        }
+        console.log(repeatString('a', 5))
+
+
+        /* Bài 5. Viết function với đầu vào là 1 chuỗi string. Trả về chuỗi đảo ngược của chuỗi đó
+        Ví dụ: reverseString('Hello') => 'olleH' */
+
+        let string5 = 'Hello World'
+        function reverseString(str) {
+            //đổi chuỗi về array
+            let arr = string5.split('')
+            //tạo 1 array mới có phần tử đảo ngược vị trí của array cũ
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                newArr.push(arr[arr.length - 1 - i])
+            }
+            return newArr.join('')
+        }
+        console.log(reverseString(string5))
+
+
+        /* Bài 6. Cho 1 chuỗi, kiểm tra xem chuỗi đó có phải chuỗi đối xứng hay không (đọc xuôi hay ngược đều như nhau, 
+        không tính khoảng trắng, không phân biệt hoa thường),
+        Ví dụ: checkSymmetricString("Race car") => true
+        Ví dụ: checkSymmetricString("hello world") => false */
+
+        let string6 = 'Race car '
+        function checkSymmetricstr(str) {
+            //chuyển về chuỗi viết thường và k có khoảng trắng, chuyển chuỗi đó thành array vs phần tử là từng chữ cái
+            let arr = str.toLocaleLowerCase().trim().split(' ').join('').split('')
+            //tạo 1 chuỗi mới là chuỗi đảo ngược, sau đó tiến hành so sánh 2 chuỗi
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                newArr.push(arr[arr.length - 1 - i])
+            }
+            return newArr.join('') == arr.join('')
+        }
+        console.log(checkSymmetricstr(string6))
+
+        
+        /* Bài 7. Viết một function nhận vào string, trả về số lượng nguyên âm có trong string
+        Nguyên âm:  a, o, e, u, i.
+        Ví dụ: countNumberVowels("hello") => 2
+        Ví dụ: countNumberVowels("hello hien") => 4 */
+
+        let string7 = 'GOod MOrning'
+        function countNumVowels(str) {
+            //chuyển string thành array, phần tử là mỗi chữ cái viết thường
+            let arr = str.toLocaleLowerCase().split('')
+            let letter = ['a', 'o', 'e', 'u', 'i'];
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (letter.includes(arr[i])) {
+                    newArr.push(arr[i])
+                }
+            }
+            return newArr.length
+        }
+        console.log(countNumVowels(string7))
+
+
+        /* Bài 8. Viết function kiểm tra xem một chuỗi có kết thúc bằng chuỗi khác hay không.
+        Ví dụ : confirmEnding("hello", "lo") => true
+        Ví dụ : confirmEnding("hello", "ll") => false */
+
+        let stringPart1 = 'Hello'
+        let stringPart2 = 'lo'
+        function confirmEnding(str1, str2) {
+            let newStr = str1.slice(-str2.length)
+            return newStr == str2
+        }
+        console.log(confirmEnding(stringPart1, stringPart2))
+
+
+        /* Bài 9. Viết function lấy ra những chữ cái đầu của từng từ trong chuỗi, các chữ cái đầu được phân tách với nhau bằng dấu cách
+        Ví dụ : getFirstLetter("xin chào các bạn") => "x c c b"
+        Ví dụ : getFirstLetter("hello world") => "h c" */
+
+        let string9 = ' Xin chào mọi người'
+        function getFirstLetter(str) {
+            arr = str.trim().split(' ')
+            newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                newArr.push(arr[i].charAt(0));
+            }
+            return newArr.join(' ')
+        }
+        console.log(getFirstLetter(string9))
+
+
+        /* Bài 10. Viết function nhập vào 1 chuỗi bất kỳ. Sắp xếp các ký tự trong chuỗi theo chiều tăng dần của bảng chữ cái
+        (có phân biệt chữ hoa, chữ thường). Yêu cầu loại bỏ khoảng trắng trong chuỗi trước khi sắp xếp
+        Ví dụ : sortLetters("hello world") => "dehllloorw"
+        Ví dụ : sortLetters("HellO  Wor Ld") => "HLOWdellor"*/
+        
+        let string10 = 'Hell O   WorLd'
+        function sortLetters(str) {
+            let arr=str.trim().split(' ').join('').split('')
+            return arr.sort().join('')
+        }
+        console.log(sortLetters(string10))
+
+
+        /*Bài 11. Viết function nhập vào 1 chuỗi bất kỳ. Tìm ra ký tự không bị lặp lại trong chuỗi (không tính khoảng trắng)
+        Ví dụ : getLetterNoRepeat("abc abce") => "e";
+        Ví dụ : getLetterNoRepeat("abce abcdf") => "e,d,f";
+        Ví dụ : getLetterNoRepeat("abab") => "";  */
+
+        let string11 = 'ababc defgdg '
+        function getLetterNoRepeat(str) {
+            let arr = string11.trim().split(' ').join('').split('')
+            //tìm ra các phần tử bị lặp lại
+            let newArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (arr.indexOf(arr[i]) != i) {
+                    newArr.push(arr[i])
+                }
+            }
+            //xóa bỏ phần tử lặp lại
+            let finalArr = []
+            for (let i = 0; i < arr.length; i++) {
+                if (newArr.indexOf(arr[i]) == -1) {
+                    finalArr.push(arr[i])
+                }
+            }
+            let result = ''
+            //in ra chuỗi gồm ký tự không bị lặp lại
+            if (finalArr.length == 0) {
+                result = '""'
+            }
+            else {
+                result = finalArr.join(',')
+            }
+            return result
+        }
+        console.log(getLetterNoRepeat(string11))
+
+
+    </script>
+</body>
+
+</html>
