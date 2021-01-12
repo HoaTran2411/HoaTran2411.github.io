@@ -84,22 +84,14 @@
 
         function sumNum5(a=5) {
             let sum = 0
-            if (checkPrimeNum(a) == true) {
-                sum = 1 + a
-            }
-            else if (a == 1) {
-                sum = 1
-            }
-            else {
-                for (let i = 2; i < a; i++) {
+            for (let i = 1; i < a+1; i++) {
                     if (a % i == 0) {
-                        sum = a + 1 + i
+                        sum += i
                     }
                 }
-            }
             return sum
         }
-        console.log(sumNum5(4))
+        console.log(sumNum5(8))
         
 
         /* Bài 6: Cho 1 số nguyên, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó sao cho ra 1 số nhỏ nhất có thể 
