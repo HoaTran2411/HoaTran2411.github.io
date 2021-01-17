@@ -11,51 +11,43 @@
     <script>
 
         // Bài 1: Viết hàm tính thể tích hình cầu, với tham số truyền vào là bán kính của hình cầu.
-
         function sphereVolume(r = 2) {
             let V = 4 / 3 * Math.PI * (r ** 3)
             return V
         }
         console.log(sphereVolume())
 
+
         /* Bài 2: Viết hàm truyền vào 2 số nguyên, tính tổng tất cả các số nguyên nằm giữa chúng. Ví dụ với 
         tham số 3 và 8 ta có kết quả là 22 (bằng 4 + 5 + 6 + 7). */
 
         function sumMiddleInterger(a, b) {
             let total = 0
-            if (a == b) {
-                total = 0
-            }
-            else if (a < b) {
-                for (let i = a + 1; i < b; i++) {
-                    total += i
-                }
-            }
-            else {
-                for (let i = b + 1; i < a; i++)
-                    total += i
+            let maxNum = Math.max(a,b)
+            let minNum = Math.min(a,b)
+            for (let i=minNum+1; i<maxNum;i++) {
+                    total +=i
             }
             return total
         }
-        console.log(sumMiddleInterger(8, 3))
+        console.log(sumMiddleInterger(3,8))
 
 
         // Bài 3: Cho 1 số, kiểm tra xem số đó có phải là số nguyên tố hay không, kết quả trả về true hoặc false. 
-
         function checkPrimeNum(a) {
             if (a < 2 || Number.isInteger(a) == false) {
                 return false
             }
-            else if (Number.isInteger(a) && a > 1) {
+            else {
                 for (let i = 2; i < a; i++) {
                     if (a % i == 0) {
-                        return false   //không dùng if, else trong vòng lặp, sẽ chạy ra dữ kiện sai
+                        return false  
                     }
                 }
-                return true            //bỏ ra ngoài vòng lặp vs trường hợp ngược lại
+                return true   
             }
         }
-        console.log(checkPrimeNum(5))
+        console.log(checkPrimeNum(17))
 
 
         /* Bài 4: Cho 1 số nguyên dương bất kỳ. Tính tổng tất cả các số nguyên tố mà nhỏ hơn hoặc bằng tham 
@@ -100,32 +92,26 @@
 
         function sortNum(a) {
             let arr = a.toString().split('')
-            if (a >= 0) {
-                let arrZezo = []
-                let arrRest = []
-                for (let i = 0; i < arr.length; i++) {
-                    if (arr[i] == 0) {
-                        arrZezo.push(arr[i])
-                    }
-                    else {
-                        arrRest.push(arr[i])
+            if (a > 0) {
+                let newArr = arr.sort()
+                for (let i=0; i<newArr.length; i++) {
+                    if (newArr[i] > 0) {
+                        newArr[0] = newArr[i];
+                        newArr[i] = 0;
+                        return newArr.join('')
                     }
                 }
-                let arrRestOrder = arrRest.sort()
-                let string1 = arrRestOrder[0]
-                let string2 = arrZezo.join('')
-                let string3 = arrRestOrder.slice(1).join('')
-                let orderString = string1 + string2 + string3
-                return orderString*1                //string*1 để thành kiểu number
+            }
+            else if (a==0) {
+                return 0
             }
             else {
                 let result = '-' + arr.sort().slice(1).reverse().join('')
                 return result*1                      //string*1 để thành kiểu number
             }
         }
-
-        console.log(sortNum(-5100523))
-        console.log(sortNum(50021355))
+        console.log(sortNum(120000401))
+        console.log(sortNum(0))
 
 
         /* Bài 7: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng "giờ:phút:giây", tham số thứ 2 là 1 số x <= 1000.
