@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework day 1- JS DOM</title>
+</head>
+
+<body>
+    <ul id="list">
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+        <li>Item 4</li>
+        <li>Item 5</li>
+        <li>Item 6</li>
+        <li>Item 7</li>
+    </ul>
+
+    <script>
+        // 1. Thêm 3 thẻ < li > có nội dung Item 8, Item 9, Item 10 vào cuối danh sách
+
+        let li8 = document.createElement('li')
+        let li9 = document.createElement('li')
+        let li10 = document.createElement('li')
+
+        li8.innerText = 'Item 8'
+        li9.innerText = 'Item 9'
+        li10.innerText = 'Item 10'
+
+        let ul = document.querySelector('ul')
+
+        ul.appendChild(li8)
+        ul.appendChild(li9)
+        ul.appendChild(li10)
+
+
+        // 2. Sửa nội dung cho thẻ < li > 1 thành màu đỏ(color)
+        let li1 = document.querySelector('li')
+        li1.style.color = 'red'
+
+        // 3. Sửa background cho thẻ < li > 3 thành màu xanh(background - color)
+        let li3 = document.querySelector('li:nth-child(3)')
+        li3.style.backgroundColor = 'lightblue'
+
+        // 4. Remove thẻ < li > 4
+        let li4 = document.querySelector('li:nth-child(4)')
+        ul.removeChild(li4)
+
+        // 5. Thêm thẻ < li > mới thay thế cho thẻ < li > 4 bị xóa ở bước trước, thẻ < li > mới có nội dung bất kỳ
+        let li4New = document.createElement('li')
+        li4New.innerText = 'Item thay thế Item số 4'
+        let li5 = document.querySelector('li:nth-child(4)')
+        ul.insertBefore(li4New,li5)
+
+        // 6. Thêm 1 nút "add" + 1 ô input để nhập text ở đằng sau ul
+        let button = document.createElement('button')
+        let input = document.createElement('input')
+
+        button.innerText = 'add'
+        input.type = 'text'
+        input.placeholder = 'Nhập tên ở đây'
+
+        console.log(button)
+        console.log(input)
+
+        document.body.appendChild(button)
+        document.body.appendChild(input)
+
+
+    </script>
+
+</body>
+
+</html>
