@@ -39,16 +39,33 @@
         let p = document.querySelector('p')
         let content = p.innerText
         let array = content.split('.').join('').split('?').join('').split(',').join('').split('!').join('').split(' ')
-        let newArr=[]
-        function findWord8Characters(arr) {
-        for (let i=0; i < arr.length; i++) {
-            if (arr[i].length >=8) {
-            newArr.push(arr[i])
-            }    
+
+        //bước 1: lấy ra dãy các từ có độ dài lớn hơn 8 ký tự
+        let newArr = []
+        for (let i = 0; i < array.length; i++) {
+            if (array[i].length >= 8) {
+                newArr.push(array[i])
+            }
         }
-        return newArr
+        console.log(newArr)
+        //bước 2: tạo dãy mới có các phần tử bằng phần tử dãy cũ và chèn thêm cặp thẻ span
+        let newArrSpan = newArr.map((ele, index, arr) => {
+            ele = '<span>' + ele + '</span>'
+            return ele
+        })
+        console.log(newArrSpan)
+        //bước 3: sửa đổi nội dung trong thẻ p, đã chèn thêm cặp thẻ span vào các chữ có độ dài lớn hơn 8
+        let newContent = content
+        for (let i = 0; i < newArrSpan.length; i++) {
+            newContent = newContent.replaceAll(newArr[i], newArrSpan[i])
         }
-        console.log(findWord8Characters(array))
+        console.log(newContent)
+        //bước 4: thay thế thẻ p cũ bằng thẻ p mới có nội dung đã chèn thêm thẻ span
+        let newP = document.createElement('p')
+        newP.innerHTML = newContent
+        document.body.replaceChild(newP, p)
+
+        //bước 5: gọi ra thẻ span và định dạng css color cho thẻ span (làm sau bài 4)
         
 
         // bài 2: Thêm link hiển thị text "facebook" link đến trang facebook.com ở sau thẻ p
@@ -65,11 +82,17 @@
         document.body.appendChild(div)
 
 
-        // Bài 4: thay thế ký hiệu ? => 🤔 và ! => 😲
-        let newString = content.replaceAll('?','🤔').replaceAll('!','😲')
-        let newP = document.createElement('p')
-        newP.innerText = newString
-        document.body.replaceChild(newP,p)
+        //Bài 4: thay thế ký hiệu ? => 🤔 và ! => 😲
+        let newString = newContent.replaceAll('?','🤔').replaceAll('!','😲')
+        let pChangeIcon = document.createElement('p')
+        pChangeIcon.innerHTML = newString
+        document.body.replaceChild(pChangeIcon,newP)
+        
+        //bài 1: bước 5: gọi ra thẻ span và định dạng css color cho thẻ span
+        let span = document.getElementsByTagName('span')
+        for (let i = 0; i < span.length; i++) {
+            span[i].style.color = 'yellow'
+        }
 
 
     </script>
