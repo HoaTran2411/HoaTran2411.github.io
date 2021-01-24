@@ -4,7 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home work day 1- JS DOM</title>
+    <title>Home work day 1 & day2 - JS DOM</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -15,27 +21,58 @@
         <li>Item 2</li>
         <li>Item 3</li>
     </ul>
-    
+    <p id="para3">xin chào các bạn- bài 3</p>
+    <button id="button3">Click here</button>
+    <div>
+        <label for="texture-selector">Choose a texture:</label>
+        <select id="texture-selector">
+            <option value="https://image.freepik.com/free-vector/memphis-seamless-patterns_9202-768.jpg">Memphis
+                Seamless</value>
+            <option value="https://image.freepik.com/free-vector/retro-styled-pattern-background_1048-6593.jpg">
+                Retro-styled</value>
+            <option value="https://image.freepik.com/free-vector/abstract-background-with-3d-pattern_1319-68.jpg">3D
+                Cubes</value>
+        </select>
+    </div>
+
+    <div id="texture-background" style="width: 400px; height: 400px"></div>
+
     <script>
+        // Bài tập buổi 1
 
         /* Bài 1. Tạo 1 thẻ p có id = "text", có nội dung bất kỳ. Yêu cầu:
         - Đặt màu văn bản thành #777
         - Đặt kích thước phông chữ thành 2rem
         - Đặt nội dung HTML thành "Tôi có thể làm <em> bất cứ điều gì </em> tôi muốn với JavaScript." */
-
-        let p = document.querySelector('p')
+        let p = document.querySelector('#text')
         p.style.color = '#777'
         p.style.fontSize = '2rem'
         p.innerHTML = "Tôi có thể làm <em> bất cứ điều gì </em> tôi muốn với JavaScript."
 
 
         // Bài 2. Sử dụng vòng lặp để đặt màu chữ cho tất cả thẻ li thành màu blue.
-
         let li = document.getElementsByTagName('li')
-        console.log(li)
         for (let i = 0; i < li.length; i++) {
             li[i].style.color = 'blue'
         }
+
+
+        // Bài tập buổi 2
+
+        //3. Tạo 1 thẻ p có nội dung bất kỳ và 1 thẻ button sau đó ấn vào button thì toggle ẩn/hiện thẻ p
+        let para3 = document.querySelector('#para3')
+        let button3 = document.querySelector('#button3')
+        button3.addEventListener('click', function () {
+            para3.classList.toggle('hidden')
+        })
+
+        //4. Lắng nghe sự kiện "change" của ô input. Thay đổi background-image của div = giá trị trong ô input
+        let select = document.querySelector('#texture-selector')
+        let div4 = document.querySelector('#texture-background')
+        select.addEventListener('change', function () {
+            div4.style.backgroundImage = 'url(' + select.value + ')'
+        })
+
 
     </script>
 

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework Day 2 - JS DOM</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        body {
+            background-color: lightskyblue;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-family: sans-serif;
+        }
+
+        .container {
+            box-sizing: border-box;
+            height: 240px;
+            width: 600px;
+            background-color: white;
+            margin: auto;
+            padding: 0px 70px;
+        }
+
+        .container-title {
+            text-transform: uppercase;
+            font-weight: 600;
+            background-color: rgb(60, 158, 219);
+            height: 40px;
+            font-size: 17px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 35px;
+        }
+
+        .container-calculate {
+            display: flex;
+            flex-direction: row;
+            font-size: 28px;
+            font-weight: 600;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .box {
+            border: solid blue 3px;
+            height: 80px;
+            width: 80px;
+            font-size: 28px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .check {
+            height: 28px;
+            width: 80px;
+            margin-left: 10px;
+            background-color: blue;
+            color: rgb(235, 228, 228);
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body onload="myFunction()">
+    <div class="container">
+        <div class="container-title">
+            thử tài tính toán nào bạn ơi
+        </div>
+        <div class="container-calculate">
+            <input class="box" id="number1">
+            <div class="calculation">+</div>
+            <input class="box" id="number2">
+            <div class="calculation">=</div>
+            <input class="box result" type="text">
+            <button class="check">Kiểm tra</button>
+        </div>
+    </div>
+    <script>
+        // Yêu cầu:
+        // 1. Tạo giao diện như hình
+        // 2. Khi mỗi lần reload hay vào trang random sẵn 2 số cộng với nhau, chỉ có ô input là để nhập kết quả phép tính
+        let number1 = document.querySelector('#number1')
+        let number2 = document.querySelector('#number2')
+        function myFunction() {
+            number1.value = Math.floor(Math.random() * 1000)
+            number2.value = Math.floor(Math.random() * 1000)
+        }
+
+        /* 3. Sau khi nhập kết quả, bấm nút "kiểm tra" thì kiểm tra xem kết quả xem có chính xác không 
+        rồi dùng hàm alert thông báo ra màn hình */
+        let buttonCheck = document.querySelector('.check')
+        let inputResult = document.querySelector('.result')
+        buttonCheck.addEventListener('click', function () {
+            if (inputResult.value == '') {
+                alert("Vui lòng nhập kết quả của bạn")
+            }
+            else if (parseInt(inputResult.value) == parseInt(number1.value) + parseInt(number2.value)) {
+                alert("Kết quả đúng")
+            }
+            else {
+                alert("Kết quả sai")
+            }
+        })
+
+        // 4. Sau khi thông báo, bấm ok trong hộp thoại alert thì random phép tính khác
+        document.body.addEventListener('click', function () {
+            number1.value = Math.floor(Math.random() * 1000)
+            number2.value = Math.floor(Math.random() * 1000)
+            inputResult.value = ''
+            inputResult.focus()
+        })
+
+    </script>
+
+</body>
+
+</html>

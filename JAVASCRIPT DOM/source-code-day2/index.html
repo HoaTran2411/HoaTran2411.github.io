@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id='heading'>Đây là thẻ heading</h1>
+    <p>Thẻ para1</p>
+    <p class="para">thẻ para2</p>
+    <p class="para">thẻ para3</p>
+    <div class="box">
+        <ul>
+            <li style='display:none;'>Thẻ li 1</li>
+            <li class='li'>thẻ li 2</li>
+            <li>thẻ li 3</li>
+            <li>thẻ li 4</li>
+        </ul>
+    </div>
+    <script>
+        //cách chèn phần tử vào thẻ HTML, dùng insertadj
+        let li4 = document.createElement('p')
+        li4.innerText = 'Thẻ para4 được chèn thêm vào'
+        //xác định phần tử mục tiêu, cách 1: chèn vào trước thẻ ul
+        // let box= document.querySelector('.box')
+        // box.insertAdjacentElement('beforebegin',li4)
+
+        let li3 = document.querySelector('p:nth-child(4)')
+        li3.insertAdjacentElement('afterend',li4)         //chèn vào sau thẻ li3
+
+        //cách 3: dùng insertHTML
+        li3.insertAdjacentHTML('afterend','<p>thẻ para4</p>')
+
+        let litag3 = document.querySelector('li:nth-child(3)')
+        litag3.insertAdjacentHTML('afterend','<li>thẻ li 5 chèn thêm vô</li>')
+
+        //afterbegin và beforeend là chèn vào bên trong thẻ, còn beforebegin và afterend là chèn trước hoặc sau thẻ đó
+
+
+
+
+
+
+    </script>
+</body>
+</html>
