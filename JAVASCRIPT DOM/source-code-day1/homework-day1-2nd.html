@@ -81,18 +81,25 @@
             }
             else {
                 ul.insertAdjacentHTML('beforeend', `<li>${input.value}</li>`)
-            } 
+                input.value = ""
+                input.focus()
+            }
         })
-        
+
         // 7. Thêm 1 nút "remove".Chức năng để xóa thẻ <li> cuối cùng của danh sách ul
         let remove = document.createElement('button')
         remove.innerText = 'remove'
         document.body.appendChild(remove)
-        
-        remove.addEventListener('click', function () {
-            ul.removeChild(ul.lastChild)
+
+        remove.addEventListener('click', function() {
+            if (ul.childNodes.length < 2) {
+                alert('Đã xóa hết thẻ li')
+            }
+            else {
+                ul.lastChild.remove()
+            }
         })
-        console.log(ul)
+
 
         // 8. Thêm 1 nút "Hide" trên đầu của danh sách<ul>.
         // Khi bấm vào "Hide" thì < ul > sẽ ẩn.Đồng thời label của nút "Hide" => "Show"
@@ -109,7 +116,6 @@
                 button8.innerText = 'Hide'
             }
         })
-
 
     </script>
 
