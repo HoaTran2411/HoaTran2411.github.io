@@ -70,14 +70,6 @@
         let totalBox = document.querySelectorAll('.box')
         spanBox.innerText = totalBox.length
 
-        // - Khi bấm vào box bất kỳ thì box đó biến mất, đồng thời số lượng total box giảm đi 1
-        let listBox = document.querySelectorAll('.box')
-        for (let i = 0; i < listBox.length; i++) {
-            listBox[i].addEventListener('click', function () {
-                listBox[i].classList.toggle('hidden')
-                spanBox.innerText--
-            })
-        }
 
         /* - Khi click vào nút "more box" thì số lượng box tăng lên 5(tương ứng với 5 màu trong mảng colors), 
         đồng thời số lượng total box cũng tăng lên 5 */
@@ -88,6 +80,17 @@
                 spanBox.innerText++
             })
         }
+
+        // - Khi bấm vào box bất kỳ thì box đó biến mất, đồng thời số lượng total box giảm đi 1
+        for (let i = 1; i < boxes.childNodes.length; i++) {
+            boxes.childNodes[i].addEventListener('click', function () {
+                this.style.display="none"
+                spanBox.innerText--
+            })
+        }
+        console.log(boxes.childNodes)
+
+
 
 
     </script>

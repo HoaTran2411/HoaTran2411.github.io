@@ -75,17 +75,22 @@
         /* 6. Thêm 1 nút "add" + 1 ô input để nhập text. 
         Mỗi khi bấm nút vào nút "add" thêm 1 thẻ < li > có nội dung là nội dung trong ô input vào cuối danh sách ul */
         button.addEventListener('click', function () {
-            ul.insertAdjacentHTML('beforeend', `<li>${input.value}</li>`)
+            if (input.value == "") {
+                alert("Vui lòng nhập nội dung của bạn")
+                input.focus()
+            }
+            else {
+                ul.insertAdjacentHTML('beforeend', `<li>${input.value}</li>`)
+            } 
         })
-
+        
         // 7. Thêm 1 nút "remove".Chức năng để xóa thẻ <li> cuối cùng của danh sách ul
         let remove = document.createElement('button')
         remove.innerText = 'remove'
         document.body.appendChild(remove)
-        let listLi = document.querySelectorAll('li')
-        console.log(listLi)
+        
         remove.addEventListener('click', function () {
-            ul.removeChild(listLi[listLi.length - 1])
+            ul.removeChild(ul.lastChild)
         })
         console.log(ul)
 

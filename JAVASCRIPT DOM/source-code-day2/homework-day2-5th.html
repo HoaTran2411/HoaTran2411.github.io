@@ -106,19 +106,22 @@
             }
             else if (parseInt(inputResult.value) == parseInt(number1.value) + parseInt(number2.value)) {
                 alert("Kết quả đúng")
+                // 4. Sau khi thông báo, bấm ok trong hộp thoại alert thì random phép tính khác
+                number1.value = Math.floor(Math.random() * 1000)
+                number2.value = Math.floor(Math.random() * 1000)
+                inputResult.value = ''
+                inputResult.focus()
+
             }
             else {
                 alert("Kết quả sai")
+                inputResult.value = ''
+                inputResult.focus()
             }
         })
 
-        // 4. Sau khi thông báo, bấm ok trong hộp thoại alert thì random phép tính khác
-        document.body.addEventListener('click', function () {
-            number1.value = Math.floor(Math.random() * 1000)
-            number2.value = Math.floor(Math.random() * 1000)
-            inputResult.value = ''
-            inputResult.focus()
-        })
+
+
 
     </script>
 
