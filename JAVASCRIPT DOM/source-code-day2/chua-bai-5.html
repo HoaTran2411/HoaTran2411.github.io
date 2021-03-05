@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;0,900;1,400;1,500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" href="style-bai5.css">
+</head>
+
+<body>
+    <div id="game">
+        <div class="game-container">
+            <h2>Thử tài tính toán nào bạn ơi!</h2>
+            <div class="game-info">
+                <p class="score-box">Score : <span class="score"></span></p>
+                <p class="time-box">Time : <span class="time"></span></p>
+                <p class="high-score-box">High Score: <span class="high-score"></span></p>
+            </div>
+            <div class="main">
+                <div id="primary-number">7</div>
+                <div id="operator">+</div>
+                <div id="secondary-number">10</div>
+                <div id="equal">=</div>
+                <div>
+                    <input type="text" id="guess">
+                </div>
+            </div>
+        </div>
+        <div class="lb-wrapper">
+            <h2>Bảng xếp hạng</h2>
+            <div class="lb-list">
+                <div class="list-header">
+                    <div class="list-rank"></div>
+                    <div class="list-info">Học viên</div>
+                    <div class="list-score">Điểm</div>
+                </div>
+                <div class="list-player-wrapper">
+                    <div class="list-player">
+                        <!-- RENDER OTHER RANK STUDENT -->
+                        <div class="list-item">
+                            <div class="list-rank">1</div>
+                            <div class="list-info">
+                                <img src="https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90" alt="hien">
+                                <div class="info">
+                                    <span class="name">Bùi Văn Hiên</span>
+                                </div>
+                            </div>
+                            <div class="list-score">
+                                <span class="top-item-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span class="top-item-point">10</span>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-rank">2</div>
+                            <div class="list-info">
+                                <img src="https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90" alt="hien">
+                                <div class="info">
+                                    <span class="name">Tào Thúy Quỳnh</span>
+                                </div>
+                            </div>
+                            <div class="list-score">
+                                <span class="top-item-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span class="top-item-point">7</span>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-rank">3</div>
+                            <div class="list-info">
+                                <img src="https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90" alt="hien">
+                                <div class="info">
+                                    <span class="name">Nguyễn Hàn Duy</span>
+                                </div>
+                            </div>
+                            <div class="list-score">
+                                <span class="top-item-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span class="top-item-point">6</span>
+                            </div>
+                        </div>
+                        <div class="list-item">
+                            <div class="list-rank">4</div>
+                            <div class="list-info">
+                                <img src="https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90" alt="hien">
+                                <div class="info">
+                                    <span class="name">Trương Minh Thúy</span>
+                                </div>
+                            </div>
+                            <div class="list-score">
+                                <span class="top-item-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span class="top-item-point">5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="game-info">
+            <p class="score-box">Score : <span class="score"></span></p>
+            <p class="time-box">Time : <span class="time"></span></p>
+            <p class="high-score-box">High Score: <span class="high-score"></span></p>
+        </div>
+    </div>
+
+    <script>
+        // Truy cập
+        let primary = document.getElementById('primary-number');
+        let secondary = document.getElementById('secondary-number');
+        let guessEle = document.getElementById('guess');
+        let operatorEl = document.getElementById('operator')
+
+        let timeEle = document.querySelector('.time')
+        let scoreEle = document.querySelector('.score')
+        let highScoreEle = document.querySelector('.high-score')
+
+        let listPlayerEl = document.querySelector('.list-player')
+
+
+        // Định nghĩa biến
+        let firstNumber;
+        let secondNumber;
+        let total;
+
+        let operator;
+        let operators = ['+', '-', '*']
+
+        let score;
+        let highScore = 0;
+        let time;
+        let interval;
+
+        let ranking = [
+            {
+                name: 'Bùi Văn Hiên',
+                avatar: 'https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90',
+                score: 9,
+            },
+            {
+                name: 'Tào Thúy Quỳnh',
+                avatar: 'https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90',
+                score: 7,
+            },
+            {
+                name: 'Nguyễn Hàn Duy',
+                avatar: 'https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90',
+                score: 6,
+            },
+            {
+                name: 'Trương Minh Thúy',
+                avatar: 'https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90',
+                score: 5,
+            },
+        ];
+
+
+        // Random số và hiển thị
+        function randomNumber() {
+            firstNumber = Math.floor(Math.random() * 10)
+            secondNumber = Math.floor(Math.random() * 10)
+            operator = operators[Math.floor(Math.random() * operators.length)]
+
+            total = eval(`${firstNumber} ${operator} ${secondNumber}`)
+
+            primary.innerText = firstNumber
+            secondary.innerText = secondNumber
+            operatorEl.innerText = operator;
+        }
+
+        // Khởi tạo game
+        function init() {
+            score = 0;
+            time = 20;
+
+            timeEle.innerText = `${time}s`
+            scoreEle.innerText = score;
+            highScoreEle.innerText = highScore;
+
+            guess.innerText = '';
+            randomNumber();
+
+            interval = setInterval(countDown, 1000)
+        }
+
+        function countDown() {
+            time--;
+            if (time < 10) {
+                timeEle.innerText = `0${time}s`
+            }
+            else {
+                timeEle.innerText = `${time}s`
+            }
+            if (time == 0) {
+                clearInterval(interval)
+
+                updateHighScore();
+                addPlayerToRanking()
+                setTimeout(init, 3000)
+
+
+            }
+        }
+
+        function updateScore() {
+            score++
+            scoreEle.innerText = score;
+        }
+
+        function updateHighScore() {
+            highScore = Math.max(score, highScore);
+            highScoreEle.innerText = highScore;
+        }
+
+
+
+
+        // Xử lý khi người chơi kiểm tra kết quá
+        guessEle.addEventListener('keydown', function (e) {
+            if (time == 0) {
+                return
+            }
+            if (e.keyCode == 13) {                  //keyCode = 13 chính là người dùng nhấn vào phím enter
+                let value = Number(this.value)      //chuyển value thành dạng số để so sánh
+
+                if (value == total) {
+                    updateScore();
+                    randomNumber()
+                    this.value = '';
+                }
+                else {
+                    this.value = '';
+                    return
+                }
+            }
+        });
+
+        function addPlayerToRanking() {
+            let user = {
+                name: 'Nguyen van a',
+                avatar: 'https://techmaster.vn/media/static/crop/brp4jgc51co0c1746n90',
+                score: score,
+            }
+            ranking.push(user)
+            renderRanking(ranking)
+        }
+
+        function renderRanking(arr) {
+            let sortArr = arr.sort(function (a, b) {
+                return b.score - a.score
+            })
+            listPlayerEl.innerText = ''
+            for (let i = 0; i < sortArr.length; i++) {
+                const p = sortArr[i]
+                listPlayerEl.innerHTML += `
+                <div class="list-item">
+                            <div class="list-rank">${i + 1}</div>
+                            <div class="list-info">
+                                <img src="${p.avatar}" alt="${p.name}">
+                                <div class="info">
+                                    <span class="name">${p.name}</span>
+                                </div>
+                            </div>
+                            <div class="list-score">
+                                <span class="top-item-icon"><i class="fa fa-star" aria-hidden="true"></i></span>
+                                <span class="top-item-point">${p.score}</span>
+                            </div>
+                </div>
+                
+                `
+            }
+        }
+
+        window.onload = init;
+
+
+    </script>
+</body>
+
+</html>

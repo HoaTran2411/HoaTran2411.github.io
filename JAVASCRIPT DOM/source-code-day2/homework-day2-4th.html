@@ -48,53 +48,116 @@
     </body>
 
     <script>
-        let colors = [
-            '#3498db',
+        //chữa bài về nhà
+        let boxesEl = document.querySelector('.boxes')
+        let totalBox = document.querySelector('.points')
+        let btn = document.querySelector('#btn')
+        let data = ['#3498db',
             '#9b59b6',
             '#e74c3c',
             '#2c3e50',
-            '#d35400',
-        ]
+            '#d35400',]
+        let colors = [...data]; //để k ảnh hưởng data ban đầu, cũng có thể dùng colors = data.slice(), đây là cách sao chép dữ liệu
 
-        // - Render số box = số lượng màu ra ngoài màn hình bằng js (5 box)
-        let spanBox = document.querySelector('.points')
-        spanBox.innerText = `${colors.length} box`
 
-        // - box được tạo bởi thẻ div, có class="box", background tương ứng với từng mã màu
-        let boxes = document.querySelector('.boxes')
-        for (let i = 0; i < colors.length; i++) {
-            boxes.insertAdjacentHTML('beforeend', `<div class="box" style="background-color:${colors[i]}"></div>`)
+        function renderBox(arr) {
+            boxesEl.innerHTML = '';    //khi renderBox thì đảm bảo trong boxes không có box nào mới render
+            if (arr.length == 0) {
+                boxesEl.innerText = 'không có box nào trong danh sách'
+                return
+            }
+            for (let i = 0; i < arr.length; i++) {
+                const b = arr[i]             //gọi ra để viết hàm bên dưới cho ngắn
+                boxesEl.innerHTML += `
+                <div class="box" style="background-color:${b}" onclick="removeBox(${i})" ></div>
+                `
+            }
+            //cách 2:
+            // for (let i = 0; i < arr.length; i++) {
+            //     boxesEl.insertAdjacentHTML('afterbegin',
+            //         `<div class="box" style="background-color:${arr[i]}" onclick="removeBox(${i})"></div>`
+            //     )
+            // }
         }
 
-        // - Cập nhật số lượng total box trong thẻ < span > có class "points"
-        let totalBox = document.querySelectorAll('.box')
-        spanBox.innerText = totalBox.length
+        //function update số lượng box thực tế
+        function updateTotalBox() {
+            totalBox.innerText = colors.length
+        }
 
-
-        /* - Khi click vào nút "more box" thì số lượng box tăng lên 5(tương ứng với 5 màu trong mảng colors), 
-        đồng thời số lượng total box cũng tăng lên 5 */
-        let button = document.querySelector('#btn')
-
-        button.addEventListener('click', function () {
-            for (let i = 0; i < colors.length; i++) {
-                boxes.insertAdjacentHTML('beforeend', `<div class="box" style="background-color:${colors[i]}"></div>`)
-                spanBox.innerText = boxes.childNodes.length - 1
-            }
-            // Khi bấm vào box bất kỳ thì box đó biến mất, đồng thời số lượng total box giảm đi 1
-            for (let i = 1; i < boxes.childNodes.length; i++) {
-                boxes.childNodes[i].addEventListener('click', function () {
-                    this.remove()
-                    spanBox.innerText = boxes.childNodes.length - 1
-                })
-            }
+        //function để renderBox: thực hiện render box và update số lượng box
+        function update() {
+            renderBox(colors);   
+            updateTotalBox();
+        }
+        
+        //khi click vào nút more boxes, sẽ thực thi function update, đồng thời thay đổi phần tử của mảng colors
+        btn.addEventListener('click', function () {
+            colors = [...colors, ...data];           //cộng hai mảng
+            //cách 2: colors = colors.concat(data)
+            update()
         })
-
-        for (let i = 1; i < boxes.childNodes.length; i++) {
-            boxes.childNodes[i].addEventListener('click', function () {
-                this.remove()
-                spanBox.innerText = boxes.childNodes.length - 1
-            })
+        
+        //hàm function để remove box, lọc ra phần tử có index khác index đang click vào
+        function removeBox(index) {
+            colors = colors.filter((color, i) => i != index);   //lọc ra các box k gồm box được click vào
+            update()     //update lại render box vs số lượng box, lưu ý luôn để số lượng box về 0: innerHTML='' trước khi render lại
         }
+
+        //function removebox luôn được thực thi vì update luôn thực thi khi vô trang web hoặc reload trang web
+        window.onload = update       //không cần đóng mở ngoặc
+
+
+
+        //tự làm
+        // let colors = [
+        //     '#3498db',
+        //     '#9b59b6',
+        //     '#e74c3c',
+        //     '#2c3e50',
+        //     '#d35400',
+        // ]
+
+        // // - Render số box = số lượng màu ra ngoài màn hình bằng js (5 box)
+        // let spanBox = document.querySelector('.points')
+        // spanBox.innerText = `${colors.length} box`
+
+    
+        // // - box được tạo bởi thẻ div, có class="box", background tương ứng với từng mã màu
+        // let boxes = document.querySelector('.boxes')
+        // for (let i = 0; i < colors.length; i++) {
+        //     boxes.insertAdjacentHTML('beforeend', `<div class="box" style="background-color:${colors[i]}"></div>`)
+        // }
+
+        // // - Cập nhật số lượng total box trong thẻ < span > có class "points"
+        // let totalBox = document.querySelectorAll('.box')
+        // spanBox.innerText = totalBox.length
+
+
+        // /* - Khi click vào nút "more box" thì số lượng box tăng lên 5(tương ứng với 5 màu trong mảng colors), 
+        // đồng thời số lượng total box cũng tăng lên 5 */
+        // let button = document.querySelector('#btn')
+
+        // button.addEventListener('click', function () {
+        //     for (let i = 0; i < colors.length; i++) {
+        //         boxes.insertAdjacentHTML('beforeend', `<div class="box" style="background-color:${colors[i]}"></div>`)
+        //         spanBox.innerText = boxes.childNodes.length - 1
+        //     }
+        //     // Khi bấm vào box bất kỳ thì box đó biến mất, đồng thời số lượng total box giảm đi 1
+        //     for (let i = 1; i < boxes.childNodes.length; i++) {
+        //         boxes.childNodes[i].addEventListener('click', function () {
+        //             this.remove()
+        //             spanBox.innerText = boxes.childNodes.length - 1
+        //         })
+        //     }
+        // })
+
+        // for (let i = 1; i < boxes.childNodes.length; i++) {
+        //     boxes.childNodes[i].addEventListener('click', function () {
+        //         this.remove()
+        //         spanBox.innerText = boxes.childNodes.length - 1
+        //     })
+        // }
 
 
     </script>

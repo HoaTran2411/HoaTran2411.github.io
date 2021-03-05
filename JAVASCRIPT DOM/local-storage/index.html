@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //bước 1: kiểm tra trang web có hỗ trợ local storage không
+        // if (typeof(Storage) !=="undefined") {
+        //     console.log('Có')
+        // } else {
+        //     console.log('không')
+        // }
+        //phương thức
+        //setItem
+        localStorage.setItem('name', 'Nguyễn Văn a')
+        localStorage.setItem('age','24')
+        localStorage.setItem('status', 'true')
+        localStorage.setItem('number', '[1,2,3,4]')
+
+        let user = {
+            name: 'abc',
+            age:24
+        }
+        localStorage.setItem('user',JSON.stringify(user))
+
+        //lấy dữ liệu ra: getItem
+        let name = localStorage.getItem('name')
+        console.log(name)
+
+        // let user1 = localStorage.getItem('user') //sẽ ra sai kiểu dữ liệu
+        // console.log(user1)
+        let user1 = JSON.parse(localStorage.getItem('user'))
+        console.log(user1)
+
+        //remove
+        localStorage.removeItem('name')
+        //clear
+        localStorage.clear() //xóa hết
+
+
+        //get khi vừa vào trang web, set khi người chơi hoàn thành bài chơi
+        //màn chơi: 3 màn chơi trong cùng 1 file html
+        //màn 1: start , ấn nút start là khởi động function init(), load ranking từ localstorage để hiển thị lên
+        //màn 2: chơi game, lưu dữ liệu của ranking vào trong localstorage
+        //màn 3: end game,  thoát game dùng window.location.reload(), giống dùng phím F5, chơi lại vào luôn màn 2
+
+        
+
+
+    </script>
+</body>
+</html>
