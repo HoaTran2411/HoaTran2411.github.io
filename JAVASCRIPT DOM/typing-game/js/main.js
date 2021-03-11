@@ -102,13 +102,13 @@ playGameEle.style.display = 'flex'
 addWordToDom()
 let value = levelEle.value;
 if (value == 'easy') {
-    time = 15
+    time = 20
 }
 if (value == 'medium') {
-    time = 10
+    time = 15
 }
 if (value == 'hard') {
-    time = 5
+    time = 10
 }
 timeEl.innerText = `${time} s`
 interval = setInterval(updateTime,1000)
