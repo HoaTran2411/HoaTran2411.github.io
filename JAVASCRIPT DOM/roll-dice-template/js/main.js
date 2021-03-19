@@ -20,13 +20,16 @@ let btnHoldEle = document.querySelector('.btn-hold')
 
 let inputFinalScoreEle = document.querySelector('.final-score')
 
+
+//tạo biến
+let activePlayer = 0;
+let totalScore = 0;
+let currentScore = 0;
+
 //game mới, reload lại giao diện ban đầu
 btnNewEle.addEventListener('click', function () {
     location.reload();
 })
-
-//tạo biến
-let activePlayer = 0;
 
 //bước 2: set up đầu game
 function init() {
@@ -51,74 +54,73 @@ function randomNum() {
 btnRollEle.addEventListener('click', function () {
     let number1 = randomNum();
     let number2 = randomNum();
-    
+
     dice1Ele.style.display = 'block';
     dice2Ele.style.display = 'block';
     dice1Ele.src = `./img/dice-${number1}.png`
     dice2Ele.src = `./img/dice-${number2}.png`
 
-    let scoreEle = document.getElementById(`score-${activePlayer}`);
-    let currentEle = document.getElementById(`current-${activePlayer}`);
+    scoreEle = document.getElementById(`score-${activePlayer}`);
+    currentEle = document.getElementById(`current-${activePlayer}`);
 
     if (number1 != 1 && number2 != 1) {
-        scoreEle.innerText = number1 + number2
-        currentEle.innerText = Number(currentEle.innerText)+ number1 + number2
+        currentScore += number1 + number2;
+        currentEle.innerText = currentScore;
     }
     else {
-        currentEle.innerText = 0;
-        scoreEle.innerText = 0;   
         exchangePlayer()
     }
 })
 
 //function đổi lượt chơi
 function exchangePlayer() {
-    dice1Ele.style.display = 'none';
-    dice2Ele.style.display = 'none';
-    
-    player1Ele.classList.toggle('active')
-    player2Ele.classList.toggle('active')
-    
-    if (player1Ele.classList.contains('active')) {
-        activePlayer = 0
+    if (activePlayer == 1) {
+        activePlayer = 0;
     } else {
         activePlayer = 1;
     }
+    dice1Ele.style.display = 'none';
+    dice2Ele.style.display = 'none';
+
+    currentScore = 0
+    currentEle.innerText = currentScore;
+
+    player1Ele.classList.toggle('active')
+    player2Ele.classList.toggle('active')
 }
 
-//part 5: Lưu trữ điểm người chơi và kiểm tra người thắng cuộc
+//part 5: sự kiện nút lưu điểm: Lưu trữ điểm người chơi và kiểm tra người thắng cuộc
 btnHoldEle.addEventListener('click', function () {
-    let value = Number(inputFinalScoreEle.value)
-    
-    if (value == '') {
-        checkWinner(20)
+    //Bước 1:lưu điểm người chơi
+    totalScore = scoreEle.innerText;
+    scoreEle.innerText = Number(totalScore) + currentScore;
 
+    //Bước 2: kiểm tra winner
+    let value = inputFinalScoreEle.value
+    if (value == '') {
+        checkWinner(50)
     } else {
-        checkWinner(value)
+        checkWinner(Number(value))
     }
 })
 
+//function kiểm tra winner
 function checkWinner(number) {
-    if (Number(currentScorePlayer1.innerText) >= number) {
-        activePlayer = 0;
+    if (Number(scoreEle.innerText) >= number) {
         displayWinner()
-
-    } else if (Number(currentScorePlayer2.innerText) >= number) {
-        activePlayer = 1;
-        displayWinner()
-
     } else {
         exchangePlayer()
     }
 }
 
+//màn hình hiển thị winner
 function displayWinner() {
     let namePlayerEle = document.getElementById(`name-${activePlayer}`);
     let playerPanelEle = document.querySelector(`.player-${activePlayer}-panel`);
-
+    currentEle.innerText = 0;
     namePlayerEle.innerText = 'Winner';
     playerPanelEle.classList.add('winner');
-    
+
     dice1Ele.style.display = 'none';
     dice2Ele.style.display = 'none';
     btnRollEle.style.display = 'none';
@@ -126,4 +128,3 @@ function displayWinner() {
 
 
 window.onload = init
-
