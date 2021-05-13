@@ -156,14 +156,22 @@
         }
         console.log(max2Numbers([1,5,8,5,8,8]))
 
-
-
-
-
-
-
-
-
+        //kiểm tra 1 số có phải số nguyên tố hay không
+        //dùng 1 biến flag để check. Ban đầu mặc định flag là true - tức số đó là số nguyên tố
+        //sau đó chạy vòng lặp nếu số đó có 1 ước bất kỳ (chạy từ 2 tới n-1), suy ra số đó k là số nguyên tố
+        // tức là flag sẽ bằng false
+        //tại sao phải tạo biến flag: vì vòng lặp nó chạy từng biến i, check điều kiện và in ra kết quả. Nếu nhét trường hợp k phải số
+        //nguyên tố và là số nguyên tố vào cùng 1 vòng lặp, nó sẽ chạy lần lượt ra từng cái check, kết quả sẽ bị sai
+        let n = 17
+        let flag = true;
+        for (let i = 2; i < n; i++) {
+            if (n % i == 0) {
+            flag = false
+            break;
+            } 
+        }
+        console.log(flag ? "n là số nguyên tố" : "n không phải số nguyên tố")
+    
 
     </script>
 </body>
