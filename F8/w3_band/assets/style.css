@@ -91,12 +91,12 @@ a {
 }
 
 /* css cho phần search button */
-
+.mobile-menu-btn,
 #header .search-btn {
     float:right;
     padding: 0 21px;
 }
-
+.mobile-menu-btn i,
 #header .search-icon {
     color:white;
     line-height:46px;
@@ -107,12 +107,26 @@ a {
     cursor: pointer;
 }
 
+/* css cho phần mobile menu btn */
+.mobile-menu-btn {
+    display:none;
+}
+.mobile-menu-btn:hover {
+    background-color:white;
+}
+.mobile-menu-btn:hover i {
+    color:black;
+}
+.toggle-menu {
+    height: auto !important;
+}
+
 /* css cho phần slider */
 
 .slider-img {
 margin-top: 46px;
-height:100vh;
-background-image: url(./img/la.jpg);
+padding-top:50%;
+background: url('./img/la.jpg') top center / cover no-repeat;
 position: relative;
 }
 
@@ -127,6 +141,9 @@ position: relative;
 .slider-title, .slider-description {
     color: white;
 }
+.slider-description {
+    padding-bottom: 40px;
+}
 .slider-title {
     font-size:20px;
 }
@@ -134,12 +151,15 @@ position: relative;
 /* css cho phần content */
 
 .content-section,
-.tour-section,
+.tour-section-content,
 .contact-section {
     padding-bottom:80px;
     padding-top:60px;
-    padding-left:23%;
-    padding-right:23%;
+    width:60%;
+    margin:auto;
+    min-width: 741px;
+    padding-left:25px;
+    padding-right:2x5px;
 }
 .section-heading {
     text-align: center;
@@ -345,6 +365,8 @@ border-radius: 5px;
     font-size:15px;
 }
 
+
+/* responsive cho ipad */
 
 
 

@@ -8,6 +8,8 @@
     <title>Boy band</title>
     <link rel="stylesheet" href="./assets/fonts/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/responsive.css">
+   
 </head>
 
 <body>
@@ -18,17 +20,17 @@
         <div id="header">
             <!-- begin: nav -->
             <ul id="nav">
-                <li><a href="">home</a></li>
-                <li><a href="">band</a></li>
-                <li><a href="">tour</a></li>
-                <li><a href="">contact</a></li>
-                <li><a href="">more
+                <li><a href="#">home</a></li>
+                <li><a href="#band">band</a></li>
+                <li><a href="#tour">tour</a></li>
+                <li><a href="#contact">contact</a></li>
+                <li><a href="#">more
                         <i class="nav-arrow-down ti-angle-down"></i>
                     </a>
                     <ul class="subnav">
-                        <li><a href="">merchandise</a></li>
-                        <li><a href="">extras</a></li>
-                        <li><a href="">media</a></li>
+                        <li><a href="#">merchandise</a></li>
+                        <li><a href="#">extras</a></li>
+                        <li><a href="#">media</a></li>
                     </ul>
                 </li>
             </ul>
@@ -39,24 +41,28 @@
                 <i class="search-icon ti-search"></i>
             </div>
             <!-- end: search button -->
+            <div class="mobile-menu-btn">
+                <i class="ti-menu"></i>
+            </div>
         </div>
         <!-- phần slider -->
         <div id="slider">
-            <div class="slider-img"></div>
-            <div class="slider-content">
-                <h2 class="slider-title">
-                    Los Angeles
-                </h2>
-                <p class="slider-description">
-                    We had the best time playing at Venice Beach!
-                </p>
+            <div class="slider-img">
+                <div class="slider-content">
+                    <h2 class="slider-title">
+                        Los Angeles
+                    </h2>
+                    <p class="slider-description">
+                        We had the best time playing at Venice Beach!
+                    </p>
+                </div>
             </div>
         </div>
 
         <!-- phần content -->
         <div id="content">
             <!-- section description -->
-            <div class="content-section">
+            <div class="content-section" id = "band">
                 <h3 class="section-heading">THE BAND</h3>
                 <p class="section-sub-heading">We love music</p>
                 <p class="about-text">
@@ -86,68 +92,73 @@
             </div>
 
             <!-- section tour -->
-            <div class="tour-section">
-                <h3 class="section-heading white-css">TOUR DATEs</h3>
-                <p class="section-sub-heading white-css">Remember to book your tickets!</p>
-                <ul class="tour-date">
-                    <li>September <span class="sold-out">Sold out</span></li>
-                    <li>October <span class="sold-out">Sold out</span></li>
-                    <li>November <span class="quantity-ticket">3</span></li>
-                </ul>
-                <div class="list-schedule">
-                    <div class="schedule-section">
-                        <img src="./assets/img/newyork.jpg" alt="newyork">
-                        <div class="schedule-content">
-                            <h3>New York</h3>
-                            <p class="schedule-date">Fri 27 Nov 2016</p>
-                            <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button>by tickets</button>
+            <div class="tour-section" id = "tour">
+                <div class="tour-section-content">
+                    <h3 class="section-heading white-css">TOUR DATEs</h3>
+                    <p class="section-sub-heading white-css">Remember to book your tickets!</p>
+                    <ul class="tour-date">
+                        <li>September <span class="sold-out">Sold out</span></li>
+                        <li>October <span class="sold-out">Sold out</span></li>
+                        <li>November <span class="quantity-ticket">3</span></li>
+                    </ul>
+                    <div class="list-schedule">
+                        <div class="schedule-section">
+                            <img src="./assets/img/newyork.jpg" alt="newyork">
+                            <div class="schedule-content">
+                                <h3>New York</h3>
+                                <p class="schedule-date">Fri 27 Nov 2016</p>
+                                <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.
+                                </p>
+                                <button>by tickets</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="schedule-section">
-                        <img src="./assets/img/paris.jpg" alt="paris">
-                        <div class="schedule-content">
-                            <h3>Paris</h3>
-                            <p class="schedule-date">Sat 28 Nov 2016</p>
-                            <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button>by tickets</button>
+                        <div class="schedule-section">
+                            <img src="./assets/img/paris.jpg" alt="paris">
+                            <div class="schedule-content">
+                                <h3>Paris</h3>
+                                <p class="schedule-date">Sat 28 Nov 2016</p>
+                                <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.
+                                </p>
+                                <button>by tickets</button>
+                            </div>
                         </div>
-                    </div>
-                    <div class="schedule-section">
-                        <img src="./assets/img/sanfran.jpg" alt="sanfran">
-                        <div class="schedule-content">
-                            <h3>San Francisco</h3>
-                            <p class="schedule-date">Sun 29 Nov 2016</p>
-                            <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-                            <button>by tickets</button>
+                        <div class="schedule-section">
+                            <img src="./assets/img/sanfran.jpg" alt="sanfran">
+                            <div class="schedule-content">
+                                <h3>San Francisco</h3>
+                                <p class="schedule-date">Sun 29 Nov 2016</p>
+                                <p class="schedule-description">Praesent tincidunt sed tellus ut rutrum sed vitae justo.
+                                </p>
+                                <button>by tickets</button>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
 
             <!-- section contact -->
-            <div class="contact-section">
+            <div class="contact-section" id = "contact">
                 <h3 class="section-heading">CONTACT</h3>
                 <p class="section-sub-heading">Fan? Drop a note!</p>
                 <div>
-                    <div class = "section-content">
+                    <div class="section-content">
                         <div>
-                        <ul class = "contact-infor">
-                            <li><i class = "ti-location-pin"></i>Chicago, US</li>
-                            <li><i class = "ti-mobile"></i>Phone: +00 151515</li>
-                            <li><i class = "ti-email"></i>Email: mail@mail.com</li>
-                        </ul>
+                            <ul class="contact-infor">
+                                <li><i class="ti-location-pin"></i>Chicago, US</li>
+                                <li><i class="ti-mobile"></i>Phone: +00 151515</li>
+                                <li><i class="ti-email"></i>Email: mail@mail.com</li>
+                            </ul>
                         </div>
-                        <div class = "contact-form">
-                            <form action= "">
-                                <div class= "infor-row">
+                        <div class="contact-form">
+                            <form action="">
+                                <div class="infor-row">
                                     <input type="text" name="" placeholder="Name" id="" class="form-control">
                                     <input type="email" name="" placeholder="Email" id="" class="form-control">
                                 </div>
-                                <div class = "message-row">
+                                <div class="message-row">
                                     <input type="text" name="" placeholder="Message" id="" class="form-control">
                                 </div>
-                                <input type="submit" value="SEND" class = "submit-row" >
+                                <input type="submit" value="SEND" class="submit-row">
                             </form>
                         </div>
                     </div>
@@ -165,17 +176,27 @@
         <!-- phần footer -->
         <div id="footer">
             <div>
-                <a href="#"><i class = "ti-facebook"></i></a>
-                <a href="#"><i class = "ti-instagram"></i></a>
-                <a href="#"><i class = "ti-pinterest"></i></a>
-                <a href="#"><i class = "ti-linkedin"></i></a>
-                <a href="#"><i class = "ti-skype"></i></a>
-                <a href="#"><i class = "ti-github"></i></a>
+                <a href="#"><i class="ti-facebook"></i></a>
+                <a href="#"><i class="ti-instagram"></i></a>
+                <a href="#"><i class="ti-pinterest"></i></a>
+                <a href="#"><i class="ti-linkedin"></i></a>
+                <a href="#"><i class="ti-skype"></i></a>
+                <a href="#"><i class="ti-github"></i></a>
             </div>
             <p>Powered by w3.css</p>
         </div>
     </div>
-    
+<script>
+    mobileMenuBtnEle = document.querySelector('.mobile-menu-btn')
+    headerEle = document.querySelector('#header')
+    mobileMenuBtnEle.addEventListener("click", function(){
+        headerEle.classList.toggle("toggle-menu")
+
+    })
+
+</script>
+
+
 
 </body>
 
