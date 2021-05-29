@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        //lưu ý dùng return đúng vị trí, vì dùng return sẽ kết thúc hàm, câu lệnh sau đó sẽ không được thực thi
+        //bài 1
+        function checkAscArr(arr) {
+            for (let i = 0; i < arr.length - 1; i++) { //chỉ chạy i đến arr.length-2 để ĐK trong vòng lặp for chỉ chạy đến tối đa arr.length-1
+                if (arr[i] > arr[i + 1]) {
+                    return false
+                }
+            }
+            return true //TH còn lại: return true thì phải bỏ ra khỏi vòng lặp, nếu để trong vòng lặp thì chạy kết quả đầu tiên nó sẽ ra luôn kết quả
+        }
+        let number = [1, 3, 4, 5,5,1]
+        console.log(checkAscArr(number))
+
+        //bài 5
+        function findMax_1(a) { //không thể put thẳng dãy vào, dùng code này máy tính sẽ k hiểu
+            return Math.max(...a) // dùng '...' để tách mảng thành danh sách số để máy tính hiểu
+        }
+
+        //bài 7, cách làm truyền mảng mới để không làm thay thế mảng ban đầu, tạo kết quả riêng, mảng cũ riêng
+        function pracice07(arr) {
+            let newArr=[]          // truyền 1 mảng rỗng
+            for (let i= 0; i < arr.length; i++) {
+                newArr.push(arr[i]%2)      // đẩy các kết quả chia lấy dư vào mảng rỗng
+            }
+            return newArr
+        }
+        console.log(pracice07(number))
+
+        //cách 2 bài 7 --> dùng hàm map, sẽ trả về đúng số lượng phần tử trong array tương ứng vs array cũ
+        function pracice07_01(arr) {
+            return arr.map(ele => ele % 2)
+        }
+        console.log(pracice07_01(number))
+
+        //bài 8: cách lặp lại 1 chuỗi dùng repeat
+        function repeatString(str) {
+            return str.repeat(10)
+        }
+        console.log(repeatString('a'))
+
+    </script>
+
+</body>
+
+</html>

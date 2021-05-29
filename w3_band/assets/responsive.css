@@ -1,0 +1,34 @@
+
+@media (max-width: 740px) {
+    /* xử lý phần header */
+    #nav>li {
+        display:block;
+    }
+    #header {
+        overflow: hidden;
+        /* height: auto; bấm vào nút mở rộng, thêm thuộc tính này cho thẻ header */
+    }
+    .slider-content {
+        display: none;
+    }
+
+    .search-btn {
+        display:none;
+    }
+    .mobile-menu-btn {
+        display:block;
+    }
+
+    /* xử lý phần content */
+    .content-section,
+    .tour-section-content,
+    .contact-section {
+        max-width: 740px;
+        min-width: auto;
+        width:100%;
+        padding-left: 15px;
+        padding-right:15px;
+
+}
+
+

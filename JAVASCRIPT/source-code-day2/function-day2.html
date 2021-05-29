@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../prism.css">
+    <title>Bài tập về function-Javascript</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 70%;
+            margin: auto;
+            padding-bottom: 50px;
+            font-size: 16px;
+            font-family: sans-serif;
+            line-height: 1.5;
+        }
+
+        .container-title {
+            text-align: center;
+            padding-bottom: 15px;
+            padding-top: 40px;
+            color:rgb(66, 65, 65);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Bài số 1 -->
+        <p class="container-title">
+            Bài 1.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng tăng dần hay không? <br />
+            Ví dụ: checkAscArr(1,2,3,4) => true // checkAscArr(1,2,4,3) => false
+
+        </p>
+        <pre>
+            <code class="language-javascript">
+                let numbers = [1, 2, 4, 5];
+                let checkAscArray = numbers.every(function (item, index, arr) {
+                    if (index == 0) {
+                        return true
+                    } else {
+                        return item > arr[index - 1];
+                    }
+                });
+                 
+                console.log(checkAscArray)
+            </code>
+        </pre>
+        <!-- Bài số 2 -->
+        <p class="container-title">
+            Bài 2.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng giảm dần hay không
+
+        </p>
+        <pre>
+            <code class="language-javascript">
+                let numbers2 = [7, 3, 2, -1];
+                let checkDcrArray = numbers2.every(function (item, index, arr) {
+                    if (index == 0) {
+                        return true
+                    } else {
+                        return item < arr[index - 1];
+                    }
+                });
+                 
+                console.log(checkDcrArray); 
+            </code>
+        </pre>
+        <!-- Bài số 3 -->
+        <p class="container-title">
+            Bài 3.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng số chẵn tăng dần hay không
+        </p>
+        <pre>
+            <code class="language-javascript">
+                let numbers3 = [4,6,8,1]
+                let checkEvenAscArr = numbers3.every(function(item, index, arr) {
+                    if (index==0 && item%2==0) {
+                        return true
+                    } else if (index > 0 && item%2==0) {
+                        return item > arr[index-1]
+                    }
+                    else {
+                        return false
+                    }
+                }
+                )
+                console.log(checkEvenAscArr)                
+            </code>
+        </pre>
+
+        <!-- Bài số 4 -->
+        <p class="container-title">
+            Bài 4.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng số lẻ giảm dần hay không
+        </p>
+        <pre>
+            <code class="language-javascript">
+                let numbers4 = [9,5,3,1]
+                let checkOddDcrArr = numbers4.every(function(item, index, arr) {
+                    if (index==0 && item%2==1) {
+                        return true
+                    } else if (index > 0 && item%2==1) {
+                        return item < arr[index-1]
+                    }
+                    else {
+                        return false
+                    }
+                }
+                )
+                console.log(checkOddDcrArr)             
+            </code>
+        </pre>
+
+        <!-- Bài số 5 -->
+        <p class="container-title">
+            Bài 5.Viết function truyền vào 1 mảng. Tìm số lớn nhất trong mảng
+            Ví dụ : findMaxNumberArr([1,2,3,4]) => 4
+        </p>
+        <pre>
+            <code class="language-javascript">
+                let numbers5 = [9,15,3,1]
+                //cách 1
+                var maxInNumbers = Math.max.apply(Math, numbers5); 
+                console.log(maxInNumbers)
+                
+                //cách 2
+                function findMaxNumArr(arr) {
+                  let currentMaxNum = arr[0]
+                
+                  for (let i=0; i< arr.length; i++){
+                    if (arr[i] > currentMaxNum){
+                      currentMaxNum = arr[i]
+                    }
+                  }
+                  console.log(currentMaxNum)
+                
+                  return currentMaxNum
+                }
+                findMaxNumArr(numbers5)            
+            </code>
+        </pre>
+
+        <!-- Bài số 6 -->
+        <p class="container-title">
+            Bài 6.Viết function truyền vào 1 mảng. Tìm số nhỏ nhất trong mảng
+            Ví dụ : findMinNumberArr([1,2,3,4]) => 1
+        </p>
+        <pre>
+            <code class="language-javascript">
+                function findMinNumArr(arr) {
+                    let minNum = arr[0]
+                    for (let i=0 ; i < arr.length; i++) {
+                        if ( arr[i] < minNum ) {
+                            minNum = arr[i]
+                        }
+                    }
+                    console.log(minNum)
+                    return minNum
+                }
+                let numbers6 = [1,-2,8,-9]
+                findMinNumArr(numbers6)        
+            </code>
+        </pre>
+
+        <!-- Bài số 7 -->
+        <p class="container-title">
+            Bài 7.Viết function truyền vào 1 mảng, kết quả trả về là 1 mảng mới với các số là số dư tương ứng khi chia
+            mảng cũ cho 2<br />
+            Ví dụ : [4,2,5,6,2,7] => [0,0,1,0,0,1]
+        </p>
+        <pre>
+            <code class="language-javascript">
+                function RemainderArr(arr) {
+                    for (let i=0 ; i < arr.length; i++) {
+                        let newNum = arr[i]%2
+                        arr[i]=newNum
+                    }
+                    console.log(arr)
+                    return arr
+                }
+                let numbers7 = [4,2,5,6,2,7]
+                RemainderArr(numbers7)    
+            </code>
+        </pre>
+
+        <!-- Bài số 8 -->
+        <p class="container-title">
+            Bài 8.Viết function truyền vào 1 chuỗi bất kỳ, có tác dụng sao chép đó chuỗi lên 10 lần<br/>
+            Ví dụ: repeatString('a') => Kết quả trả về là 'aaaaaaaaaa'
+        </p>
+        <pre>
+            <code class="language-javascript">
+                function repeatString1(string) {
+                    let newString=''
+                    for (let i=0; i < 10 ; i++) {
+                        newString = string + newString
+                    }
+                    console.log(newString)
+                    return newString
+                }
+                repeatString1('12')   
+            </code>
+        </pre>
+
+        <!-- Bài số 9 -->
+        <p class="container-title">
+            Bài 9.Viết function truyền vào 1 chuỗi bất kỳ, có tác dụng sao chép đó chuỗi lên 10 lần, ngăn cách nhau bởi
+            dấu gạch ngang
+            <br />Ví dụ: repeatString('a') => Kết quả trả về là 'a-a-a-a-a-a-a-a-a-a'
+        </p>
+        <pre>
+            <code class="language-javascript">
+                function repeatString2(string) {
+                    let newString=''
+                    for (let i = 0; i < 10; i++) {
+                        newString= string + '-' + newString
+                    }
+                    console.log(newString.slice(0 , newString.length-1))
+                    return newString
+                }
+                repeatString2('a') 
+            </code>
+        </pre>
+    </div>
+    <script src="../prism.js">
+    </script>
+    <script>
+        // Bài 1.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng tăng dần hay không
+        // Ví dụ: checkAscArr(1,2,3,4) => true
+        // checkAscArr(1,2,4,3) => false
+
+        let numbers = [1, 2, 4, 5];
+        let checkAscArray = numbers.every(function (item, index, arr) {
+            if (index == 0) {
+                return true
+            } else {
+                return item > arr[index - 1];
+            }
+        });
+
+        console.log(checkAscArray)
+
+        // Bài 2.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng giảm dần hay không
+        let numbers2 = [7, 3, 2, -1];
+        let checkDcrArray = numbers2.every(function (item, index, arr) {
+            if (index == 0) {
+                return true
+            } else {
+                return item < arr[index - 1];
+            }
+        });
+
+        console.log(checkDcrArray);
+
+
+
+        // Bài 3.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng số chẵn tăng dần hay không
+        let numbers3 = [4, 6, 8, 1]
+        let checkEvenAscArr = numbers3.every(function (item, index, arr) {
+            if (index == 0 && item % 2 == 0) {
+                return true
+            } else if (index>0 && item % 2 == 0) {
+                return item > arr[index - 1]
+            }
+            else {
+                return false
+            }
+        }
+        )
+        console.log(checkEvenAscArr)
+
+
+
+        // Bài 4.Viết function truyền vào 1 mảng. Kiểm tra mảng đó có phải là mảng số lẻ giảm dần hay không
+        let numbers4 = [9, 5, 3, 1]
+        let checkOddDcrArr = numbers4.every(function (item, index, arr) {
+            if (index == 0 && item % 2 == 1) {
+                return true
+            } else if (index > 0 && item % 2 == 1) {
+                return item < arr[index - 1]
+            }
+            else {
+                return false
+            }
+        }
+        )
+        console.log(checkOddDcrArr)
+
+
+
+        // Bài 5.Viết function truyền vào 1 mảng. Tìm số lớn nhất trong mảng
+        // Ví dụ : findMaxNumberArr([1,2,3,4]) => 4
+        let numbers5 = [9, 15, 3, 1]
+        //cách 1 dùng math.max
+        var maxInNumbers = Math.max.apply(Math, numbers5);
+        console.log(maxInNumbers)
+
+        //cách 2
+        function findMaxNumArr(arr) {
+            let currentMaxNum = arr[0]
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] > currentMaxNum) {
+                    currentMaxNum = arr[i]
+                }
+            }
+            console.log(currentMaxNum)
+
+            return currentMaxNum
+        }
+        findMaxNumArr(numbers5)
+
+
+
+
+
+        // Bài 6.Viết function truyền vào 1 mảng. Tìm số nhỏ nhất trong mảng
+        // Ví dụ : findMinNumberArr([1,2,3,4]) => 1
+        function findMinNumArr(arr) {
+            let minNum = arr[0]
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] < minNum) {
+                    minNum = arr[i]
+                }
+            }
+            console.log(minNum)
+            return minNum
+        }
+        let numbers6 = [1, -2, 8, -9]
+        findMinNumArr(numbers6)
+
+
+
+        // Bài 7.Viết function truyền vào 1 mảng, kết quả trả về là 1 mảng mới với các số là số dư tương ứng khi chia mảng cũ cho 2
+        // Ví dụ : [4,2,5,6,2,7] => [0,0,1,0,0,1]
+        function RemainderArr(arr) {
+            for (let i = 0; i < arr.length; i++) {
+                let newNum = arr[i] % 2
+                arr[i] = newNum
+            }
+            console.log(arr)
+            return arr
+        }
+        let numbers7 = [4, 2, 5, 6, 2, 7]
+        RemainderArr(numbers7)
+
+
+
+        // Bài 8.Viết function truyền vào 1 chuỗi bất kỳ, có tác dụng sao chép đó chuỗi lên 10 lần
+        // Ví dụ: repeatString('a') => Kết quả trả về là 'aaaaaaaaaa'
+        function repeatString1(string) {
+            let newString = ''
+            for (let i = 0; i < 10; i++) {
+                newString = string + newString
+            }
+            console.log(newString)
+            return newString
+        }
+        repeatString1('12')
+
+
+
+        // Bài 9.Viết function truyền vào 1 chuỗi bất kỳ, có tác dụng sao chép đó chuỗi lên 10 lần, ngăn cách nhau bởi dấu gạch ngang
+        // Ví dụ: repeatString('a') => Kết quả trả về là 'a-a-a-a-a-a-a-a-a-a'
+        function repeatString2(string) {
+            let newString = ''
+            for (let i = 0; i < 10; i++) {
+                newString = string + '-' + newString
+            }
+            console.log(newString.slice(0, newString.length - 1))
+            return newString
+        }
+        repeatString2('a')
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //         var a = 6
+        //         //bước 1: tạo ra a copy, thực hiện cộng thêm 1 cho a, a = 7
+        //         //bước 2: in ra a copy
+        //         console.log(a++)  //in ra 6
+
+        //         //bước 1: thực hiện cộng 1 cho a --> in ra a= a+1 = 8
+        //         console.log(++a)
+        //         // tạo a copy bằng 8, in ra a copy bằng 8, và biến a thì bị trừ 1 bằng 7
+        //         console.log(a--)// in ra 8
+
+        //         //thực hiện a - 1, in ra a= a-1 = 6
+        //         console.log(--a) //in ra 6
+
+        //         //6 giá trị khi convert ra kiểu boolean ra false:
+        //         // 0, '' hoặc "", NaN, undefined, null, false
+
+        //         let result = 0 || '' || null || false
+        //         console.log(result)
+
+
+
+        // function run(content) {
+
+        // return content.replaceAll('JS','Javascript' )
+
+        // }
+
+        // console.log(run ('JS là JS là JS sao'))
+        // let d = new Date()
+        // console.log(d)
+        // console.log(d.valueOf())
+        // console.log(d.toUTCString())
+        // console.log(d.toTimeString())
+        // console.log(d.toString())
+        // console.log(d.toLocaleString())
+        // console.log(d.toLocaleTimeString())
+        // console.log(d.getDay())
+
+        // let womanDay = new Date("10/20/2010")
+
+        // let result1 = 20 / "abc"
+        // console.log(isNaN(result1))
+        // console.log(2.111111.toFixed(1))
+
+        //array
+        //1. pop() --> xóa element cuối mảng và trả về phần tử đã xóa
+        let array = ['javascript', 'lion', 'sera', 'python']
+        console.log(array.pop())  //trả về phần tử cuối mảng
+        console.log(array)   //mảng đã bị xóa phần tử trên
+
+        //2. push() --> thêm phần tử vào cuối mảng, trả về độ dài của mảng mới
+        console.log(array.push('hihi', 'hehe'))
+        console.log(array)
+
+        //3. shift() --> tương tự pop, nhưng xóa phần tử đầu tiên của mảng và trả về phần tử đã xóa
+        //khi xóa hết phần tử trong array, sẽ trả về underfined
+
+        //4. unshift: thêm vào phần tử đầu mảng và trả về độ dài của mảng mới
+
+        //splice: vừa xóa, vừa chèn, có thể thay thế bằng cách xóa 1 phần tử và chèn luôn phần tử mới vào vị trí đó
+        //trả về mảng gồm các phần tử đã xóa
+        console.log(array.splice(0, 2, 'xóa js', 'ghép js'))
+        console.log(array)
+
+        console.log(typeof NaN)  //-> NaN muốn kiểm tra thì phải dùng Number.isNaN, vì vậy kiểm tra 1 dữ liệu nhập vào có phải 1 số hay không
+        //thì cần kiểm tra typeof là number, sau đó, loại đi NaN trong đó đi
+
+        //js object
+        let home = 'factory'
+        let myInfo = {
+            name: 'hoa tran',
+            age: '25',
+            status: 'single',
+            [home]: 'factory',    //dùng [biến] để máy tính hiểu đây là biến có giá trị là factory, k phải biến tên là home
+            getName: function () {
+                return this.name
+            }
+        }
+        //cách truy xuất phần tử trong object
+        //cách 1:
+        console.log(myInfo.status)     //sẽ truy xuất thẳng vào status trong myInfo, nếu có biến status được khai báo ở bên ngoài
+        //thì biến status đấy cũng k dc truy cập trong trường hợp này
+        //VD: 
+        let status = 'xin chào'
+        console.log(myInfo.status)    //ra kết quả là status
+        //cách 2: 
+        console.log(myInfo['status'])
+
+        console.log(myInfo.home)   //ra kết quả undefined vì trong myInfo k có cặp value tên home, mà chỉ có biến home
+        console.log(myInfo[home])    //đưa thẳng biến home vào ngoặc vuông, k dùng cặp nháy đơn hoặc kép
+
+        //lấy value là 1 function
+        console.log(myInfo.getName())   //toán tử call () vào sau key getName
+
+        //trong object:
+        //cặp tên function: gọi là phương thức: method, vd getName: function...
+        //TH khác: gọi là thuộc tính (property), vd: name:'hoa tran',..
+
+        //Object constructor: tạo form mẫu 
+        function User(firstName, lastName, grade) {                     //lưu ý tên function tạo object constructor quy định viết hoa chữ đầu tiên để phân biệt
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.class = grade;
+            this.fullName = function () {
+                return `${firstName} ${lastName}`
+            }
+        }
+        //những cái chung có thể tạo function object constructor, sau đó gọi ra
+        let tutor = new User('Tran', "Nam", "12")
+        let student = new User("Đỗ", "Mai Anh", "10")
+        console.log(tutor)
+        console.log(student)
+        //bên cạnh đó vẫn tạo dc những thuộc tính riêng của object, k ảnh hưởng constructor ban đầu
+        tutor.charactor = "cool boy"
+        console.log(tutor)
+        console.log(tutor.fullName())
+
+        //cách thêm thuộc tính chung ở ngoài hàm tạo object constructor, sử dụng prototype
+        User.prototype.color = "màu red"
+        console.log(tutor.color)
+        console.log(student.color)
+        console.log(tutor)   //xuất hiện trong proto
+
+
+        /* nếu dùng if else tạo thành 1 khối câu lệnh: if, else if, else --> 
+        + sẽ xét điều kiện 1 đầu tiên, nếu đúng trả về kết quả của đk thứ 1, k quan tâm đk thứ 2, 3, 4..
+        + nếu sai, thì xét tới điều kiện tiếp theo, thứ tự từ trên xuống dưới */
+
+        //if kết hợp với else tạo 1 khối, chỉ trả về 1 kết quả, còn dùng if riêng biệt thì trả về nhiều kết quả nếu biểu thức đk đều đúng
+        // let today = 9
+        // if (today === 3) {
+        //     console.log('hôm nay là thứ 3') }
+        // if (today > 2 ) {
+        //     console.log('hôm nay là thứ 8') }
+        // if (today > 7 ) {
+        //     console.log('hôm nay là chủ nhật')
+        // }
+
+        //câu lệnh rẽ nhánh swift, nếu không dùng break sau mỗi case, thì bắt đầu từ case điều kiện đúng, tất cả case tiếp theo đều dc thực thi
+        //case 5 tương đương phép so sánh if (date === 5), tức là 3 dấu bằng
+        //dùng if trong trường hợp so sánh lớn hơn nhỏ hơn, trong trường hợp mà dữ liệu cho trước lớn hơn 3 điều kiện nên dùng swift
+        //break k dùng trong trường hợp nhiều case mà muốn cho chung 1 kết quả, sẽ rất hiệu quả
+        
+
+        //do, while: luôn thực hiện biểu thức trong do 1 lần dù điều kiện trong while có đúng hay sai
+        let i = 0
+        let isSuccess = false;
+        do {
+            i++
+            console.log(i)
+            if (true) {
+                isSuccess = true
+            }
+        } while (!isSuccess && i <3)
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

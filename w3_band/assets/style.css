@@ -1,0 +1,385 @@
+/* 1. vị trí
+2. kích thước
+3. màu sắc
+4. kiểu dáng (kiểu dáng, hình vuông tròn...) */
+
+html {
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+    font-size:15px;
+}
+
+/* css common */
+li {
+    height: 100%;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* css cho phần header */
+
+#header {
+    height: 46px;
+    background-color: #000;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 1;
+}
+
+#nav {
+    height: 100%;
+    display: inline-block;
+}
+#nav>li {
+    padding: 0 20px;
+    display:inline-block;
+    position: relative;
+}
+
+#nav li:hover {
+    color: #000!important;
+    background-color: #ccc!important;
+}
+#nav>li>a {
+    color: white;
+    text-transform: uppercase;
+    line-height: 46px;
+}
+
+#nav li:hover .subnav {
+    display:block;
+}
+
+#nav .subnav {
+    position:absolute;
+    top:100%;
+    left:0;
+    text-transform: capitalize;
+    background-color: white;
+    box-shadow:0.5px 0.5px 0.5px 0.5px rgb(233, 226, 226);
+    display:none;
+}
+
+#nav .subnav>li {
+    padding: 7px 10px
+
+}
+
+#nav .nav-arrow-down {
+    color:white;
+    height:46px;
+    font-size:13px;
+}
+
+#nav li:hover a {
+    color:black;
+}
+
+#nav li:hover i {
+    color:black;
+}
+
+/* css cho phần search button */
+.mobile-menu-btn,
+#header .search-btn {
+    float:right;
+    padding: 0 21px;
+}
+.mobile-menu-btn i,
+#header .search-icon {
+    color:white;
+    line-height:46px;
+    font-weight: 600;
+}
+#header .search-btn:hover {
+    background-color:red;
+    cursor: pointer;
+}
+
+/* css cho phần mobile menu btn */
+.mobile-menu-btn {
+    display:none;
+}
+.mobile-menu-btn:hover {
+    background-color:white;
+}
+.mobile-menu-btn:hover i {
+    color:black;
+}
+.toggle-menu {
+    height: auto !important;
+}
+
+/* css cho phần slider */
+
+.slider-img {
+margin-top: 46px;
+padding-top:50%;
+background: url('./img/la.jpg') top center / cover no-repeat;
+position: relative;
+}
+
+.slider-content {
+    position: absolute;
+    left:0;
+    right:0;
+    bottom: 10px;
+    text-align: center;
+    line-height: 32px;
+}
+.slider-title, .slider-description {
+    color: white;
+}
+.slider-description {
+    padding-bottom: 40px;
+}
+.slider-title {
+    font-size:20px;
+}
+
+/* css cho phần content */
+
+.content-section,
+.tour-section-content,
+.contact-section {
+    padding-bottom:80px;
+    padding-top:60px;
+    width:60%;
+    margin:auto;
+    min-width: 741px;
+    padding-left:25px;
+    padding-right:2x5px;
+}
+.section-heading {
+    text-align: center;
+    font-size:28px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+.section-sub-heading {
+    text-align: center;
+    padding: 18px 0;
+    font-style: italic;
+    opacity: 0.7;
+
+}
+
+.about-text {
+    text-align: justify;
+    line-height: 1.4;
+}
+
+/*css cho phần danh sách thành viên */
+.list-member {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-around;
+    margin-top: 46px;
+    padding-bottom: 20px;
+}
+.member-detail {
+    width: 20%;
+    text-align: center;
+}
+.member-detail img {
+    width: 100%;
+    border-radius: 4px;
+}
+.member-detail h4 {
+    font-size:15px;
+    font-weight:500;
+    margin-bottom: 10px;
+}
+
+.tour-section {
+    background-color: black;
+}
+
+.white-css {
+    color: white;
+}
+
+/* css phần tour-date */
+.tour-date {
+    background-color: white;
+    line-height: 2.5;
+    margin-top:25px;
+    
+}
+.tour-date>li {
+    border-bottom: solid 0.5px rgb(66, 58, 58);
+    padding: 3px 20px;
+}
+
+.sold-out {
+    margin-left: 10px;
+    color: white;
+    background-color: red;
+    padding: 4px 6px;
+}
+
+.quantity-ticket {
+    float: right;
+    background-color: black;
+    color: white;
+    width: 23px;
+    height: 23px;
+    text-align: center;
+    line-height: 23px;
+    border-radius: 50%;
+    margin-top:6px;
+}
+
+/* css cho list-schedule */
+.list-schedule {
+    display: flex;
+    justify-content: space-between;
+    margin-top:30px;
+}
+.schedule-section {
+    width: 31%;
+    background-color: white;
+}
+.schedule-section img {
+    width: 100%;
+}
+
+.schedule-section img:hover {
+    opacity: 0.6;
+}
+.schedule-content {
+    padding: 18px;
+}
+.schedule-content h3 {
+    font-size:15px;
+}
+.schedule-date {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-style: italic;
+    font-size: 14px;
+    opacity: 0.6;
+}
+.schedule-description {
+    font-size: 15px;
+    padding-bottom:15px;
+}
+
+.schedule-content button {
+    padding: 6px 12px;
+    font-size: 15px;
+    text-transform: capitalize;
+    color: white;
+    background-color: black;
+    border:none;
+}
+
+.schedule-content button:hover {
+    color:black;
+    background-color: #ccc;
+}
+.contact-infor {
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.contact-section i[class*="ti-"] {
+    font-size:18px;
+    min-width:30px;
+    display:inline-block;
+}
+.section-content {
+    display:flex;
+    justify-content: space-between;
+    margin-top:30px;
+}
+.contact-form {
+    width: 400px;
+    font-size: 16px;
+}
+.infor-row {
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+input {
+    height: 38px;
+    padding-left: 10px;
+}
+.infor-row input {
+    width: 48%;
+    
+}
+.message-row>input {
+    margin-top:10px;
+    margin-bottom:15px; 
+    width: 100%;
+}
+
+.submit-row {
+width: 80px;
+padding-left: 0;
+float: right;
+background-color: black;
+color:white;
+border-radius: 5px;
+}
+.submit-row:hover {
+    background-color: rgb(163, 161, 161);
+    color:black;
+    border:none;
+}
+
+
+/* css phần map-section */
+.map-section img {
+    width:100%;
+}
+
+#footer {
+    display:flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 40px 50px;
+    line-height: 30px;
+    opacity: 0.8;
+}
+#footer i{
+    font-size:20px;
+}
+
+#footer p{
+    font-size:15px;
+}
+
+
+/* responsive cho ipad */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

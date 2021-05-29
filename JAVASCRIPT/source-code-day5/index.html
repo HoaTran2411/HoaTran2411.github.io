@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // Bài 1: Viết hàm tính thể tích hình cầu, với tham số truyền vào là bán kính của hình cầu.
+        function sphereVolume(r = 2) {
+            let V = 4 / 3 * Math.PI * (r ** 3)
+            return V
+        }
+        console.log(sphereVolume())
+
+
+        /* Bài 2: Viết hàm truyền vào 2 số nguyên, tính tổng tất cả các số nguyên nằm giữa chúng. Ví dụ với 
+        tham số 3 và 8 ta có kết quả là 22 (bằng 4 + 5 + 6 + 7). */
+
+        function sumMiddleInterger(a, b) {
+            let total = 0
+            let maxNum = Math.max(a,b)
+            let minNum = Math.min(a,b)
+            for (let i=minNum+1; i<maxNum;i++) {
+                    total +=i
+            }
+            return total
+        }
+        console.log(sumMiddleInterger(3,8))
+
+
+        // Bài 3: Cho 1 số, kiểm tra xem số đó có phải là số nguyên tố hay không, kết quả trả về true hoặc false. 
+        function checkPrimeNum(a) {
+            if (a < 2 || Number.isInteger(a) == false) {
+                return false
+            }
+            else {
+                for (let i = 2; i < a; i++) {
+                    if (a % i == 0) {
+                        return false  
+                    }
+                }
+                return true   
+            }
+        }
+        console.log(checkPrimeNum(17))
+
+
+        /* Bài 4: Cho 1 số nguyên dương bất kỳ. Tính tổng tất cả các số nguyên tố mà nhỏ hơn hoặc bằng tham 
+        số truyền vào.
+        Nếu tham số truyền vào nhỏ hơn 2 thì tổng bằng 0;
+        TH còn lại thì tìm ra số nguyên tố và tính tổng nó */
+
+        function sumPrimeNum(a) {
+            let sum = 0
+            if (a => 2) {
+                for (let b = 2; b < a + 1; b++) {
+                    if (checkPrimeNum(b) == true) {
+                        sum += b
+                    }
+                }
+            }
+            else {
+                sum = 0
+            }
+            return sum
+        }
+        console.log(sumPrimeNum(5))
+
+
+        // Bài 5: Cho 1 số nguyên dương, viết hàm tính tổng tất cả các ước số của số đó.
+
+        function sumNum5(a=5) {
+            let sum = 0
+            for (let i = 1; i < a+1; i++) {
+                    if (a % i == 0) {
+                        sum += i
+                    }
+                }
+            return sum
+        }
+        console.log(sumNum5(8))
+        
+
+        /* Bài 6: Cho 1 số nguyên, hãy viết hàm sắp xếp lại các chữ số trong số nguyên đó sao cho ra 1 số nhỏ nhất có thể 
+        (không tính số 0 đầu tiên). 
+        Ví dụ với tham số 53751 thì kết quả là 13557. */
+
+        function sortNum(a) {
+            let arr = a.toString().split('')
+            if (a > 0) {
+                let newArr = arr.sort()
+                for (let i=0; i<newArr.length; i++) {
+                    if (newArr[i] > 0) {
+                        newArr[0] = newArr[i];
+                        newArr[i] = 0;
+                        return newArr.join('')
+                    }
+                }
+            }
+            else if (a==0) {
+                return 0
+            }
+            else {
+                let result = '-' + arr.sort().slice(1).reverse().join('')
+                return result*1                      //string*1 để thành kiểu number
+            }
+        }
+        console.log(sortNum(120000401))
+        console.log(sortNum(0))
+
+
+        /* Bài 7: Viết hàm có 2 tham số, tham số đầu tiên là 1 chuỗi thời gian t dạng "giờ:phút:giây", tham số thứ 2 là 1 số x <= 1000.
+        Kết quả trả về là 1 chuỗi biểu thị thời gian sau x giây kể từ thời điểm t.
+        Ví dụ với t = "9:20:56" và x = 7 thì kết quả là "9:21:3" */
+
+        function timePlus(t, x) {
+            let arr = t.split(':')
+            let second = (arr[2] * 1 + x) % 60          //arr[i]*1 để chuyển string thành number
+            let minute = Math.floor((arr[2] * 1 + x) / 60 + (arr[1] * 1)) % 60
+            let hour = (Math.floor(Math.floor((arr[2] * 1 + x) / 60 + (arr[1] * 1)) / 60) + arr[0] * 1) % 24
+            let newTime = hour + ':' + minute + ':' + second
+            return newTime
+        }
+        console.log(timePlus('23:59:56', 8))
+        console.log(timePlus('9:20:56', 7))
+        console.log(timePlus('8:00:00', 1000))
+
+
+    </script>
+
+</body>
+
+</html>

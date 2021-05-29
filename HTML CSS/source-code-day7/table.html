@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+        table,th, td {
+            border:1px solid green;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- dùng col-span và row-span để hợp nhất 2 hàng và 2 cột -->
+    <!-- dùng nth-child (psedou) để css cho màu các ô trong hàng cùng muốn css 1 lúc -->
+    <table>
+        <tr>
+            <th>STT</th>
+            <th>Họ tên</th>
+            <th>Giới tính</th>
+            <th>Ghi chú</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Lan</td>
+            <td>Nữ</td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Nam</td>
+            <td>Nam</td>
+            <td>học lớp 2</td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=p, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes tang-width {
+            to {
+                width: 500px;
+            }
+
+            from {
+                width: 200px;
+            }
+        }
+
+        .animation {
+            background-color: teal;
+            width: 200px;
+            text-align: center;
+            color: white;
+            font-size: 30px;
+            animation: tang-width 2s 0.5s infinite alternate;
+        }
+
+        @keyframes change-color {
+            0% {
+                background-color: teal;
+            }
+
+            20% {
+                background-color: red;
+            }
+
+            40% {
+                background-color: gray;
+            }
+        }
+        @keyframes change-speed {
+            0% {
+                transform:scale(1);
+            }
+            20% {
+                transform:scale(1.02);
+            }
+            50% {
+                transform:scale(1.2);
+            }
+            100% {
+                transform:scale(1.25);
+            }
+        }
+        img {
+            width:400px;
+            animation:change-speed 1.8s 0.7s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="animation">Animation</p>
+    <img src="http://pngimg.com/uploads/heart/heart_PNG51352.png" alt="trái tim">
+    &hearts;
+       
+</body>
+
+</html>
